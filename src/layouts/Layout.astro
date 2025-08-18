@@ -8,6 +8,9 @@ const {
   title, 
   description = "Luxury fine jewellery featuring handcrafted 18K gold pieces with rare Persian turquoise and gemstones." 
 } = Astro.props;
+
+// Import global CSS
+import '../styles/global.css';
 ---
 
 <!DOCTYPE html>
@@ -26,7 +29,6 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Import CSS files -->
-    <link rel="stylesheet" href="/src/styles/global.css">
   </head>
   <body>
     <slot />
