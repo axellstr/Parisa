@@ -4,8 +4,7 @@
   "framework": "astro",
   "functions": {
     "src/pages/api/**/*.ts": {
-      "runtime": "edge",
-      "regions": ["lhr1", "fra1", "iad1"]
+      "runtime": "edge"
     }
   },
   "env": {
