@@ -7,12 +7,6 @@
       "runtime": "edge"
     }
   },
-  "env": {
-    "STRIPE_PUBLISHABLE_KEY": "@stripe-publishable-key",
-    "STRIPE_SECRET_KEY": "@stripe-secret-key",
-    "STRIPE_WEBHOOK_SECRET": "@stripe-webhook-secret",
-    "DATABASE_URL": "@database-url"
-  },
   "headers": [
     {
       "source": "/api/(.*)",
