@@ -1,0 +1,59 @@
+/* Delivery Information Styles */
+.delivery-info {
+  padding: 4rem 0;
+  background: var(--background-light);
+}
+
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.delivery-item {
+  text-align: center;
+  padding: 2rem;
+}
+
+.delivery-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary-turquoise);
+  color: white;
+}
+
+.delivery-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.delivery-description {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .delivery-info {
+    padding: 2rem 0;
+  }
+  
+  .delivery-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .delivery-item {
+    padding: 1rem;
+  }
+}

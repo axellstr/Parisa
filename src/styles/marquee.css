@@ -1,0 +1,39 @@
+/* Marquee Banner Styles */
+.marquee {
+  background: var(--text-dark);
+  color: white;
+  padding: 0.5rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 65s linear infinite;
+  padding-left: 100%;
+}
+
+.marquee-content span {
+  padding-right: 3rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee {
+    font-size: 0.75rem;
+  }
+  
+  .marquee-content {
+    animation: marquee 40s linear infinite;
+  }
+}

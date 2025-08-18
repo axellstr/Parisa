@@ -1,0 +1,216 @@
+---
+// Navigation component for header
+---
+
+<nav class="navigation">
+  <div class="container">
+    <div class="nav-content">
+      <!-- Hamburger Menu -->
+      <div class="nav-left">
+        <button class="hamburger-btn" aria-label="Menu" id="hamburger-menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+      
+      <!-- Logo Center -->
+      <div class="logo">
+        <a href="/" class="brand-logo">
+          <img src="/images/Logo_dark.svg" alt="Parisa" class="logo-image" />
+        </a>
+      </div>
+      
+      <!-- Cart Actions -->
+      <div class="nav-actions">
+        <button class="search-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+        <button class="cart-btn" aria-label="Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="8" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+            <path d="M2.05 2.05h2l.29 2.95L6 13h9l4-8H7"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-content">
+        <div class="nav-item-with-dropdown">
+          <button class="nav-dropdown-btn" data-dropdown="collections">
+            Collections
+            <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-content" id="collections-dropdown">
+            <div class="nav-sub-item-with-dropdown">
+              <button class="nav-sub-dropdown-btn" data-dropdown="necklaces">
+                Necklaces
+                <svg class="dropdown-arrow small" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </button>
+              <div class="sub-dropdown-content" id="necklaces-dropdown">
+                <a href="/collections/necklaces/chokers">Chokers</a>
+                <a href="/collections/necklaces/pendants">Pendants</a>
+                <a href="/collections/necklaces/chains">Chains</a>
+                <a href="/collections/necklaces/statement">Statement Necklaces</a>
+                <a href="/collections/necklaces/layering">Layering Sets</a>
+              </div>
+            </div>
+            
+            <div class="nav-sub-item-with-dropdown">
+              <button class="nav-sub-dropdown-btn" data-dropdown="earrings">
+                Earrings
+                <svg class="dropdown-arrow small" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </button>
+              <div class="sub-dropdown-content" id="earrings-dropdown">
+                <a href="/collections/earrings/studs">Studs</a>
+                <a href="/collections/earrings/hoops">Hoops</a>
+                <a href="/collections/earrings/dangles">Dangles</a>
+                <a href="/collections/earrings/huggie">Huggie Earrings</a>
+                <a href="/collections/earrings/cuffs">Ear Cuffs</a>
+              </div>
+            </div>
+            
+            <div class="nav-sub-item-with-dropdown">
+              <button class="nav-sub-dropdown-btn" data-dropdown="bracelets">
+                Bracelets
+                <svg class="dropdown-arrow small" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </button>
+              <div class="sub-dropdown-content" id="bracelets-dropdown">
+                <a href="/collections/bracelets/tennis">Tennis Bracelets</a>
+                <a href="/collections/bracelets/chain">Chain Bracelets</a>
+                <a href="/collections/bracelets/charm">Charm Bracelets</a>
+                <a href="/collections/bracelets/cuff">Cuff Bracelets</a>
+                <a href="/collections/bracelets/bangles">Bangles</a>
+              </div>
+            </div>
+            
+            <div class="nav-sub-item-with-dropdown">
+              <button class="nav-sub-dropdown-btn" data-dropdown="rings">
+                Rings
+                <svg class="dropdown-arrow small" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </button>
+              <div class="sub-dropdown-content" id="rings-dropdown">
+                <a href="/collections/rings/engagement">Engagement Rings</a>
+                <a href="/collections/rings/wedding">Wedding Bands</a>
+                <a href="/collections/rings/statement">Statement Rings</a>
+                <a href="/collections/rings/stackable">Stackable Rings</a>
+                <a href="/collections/rings/signet">Signet Rings</a>
+              </div>
+            </div>
+            
+            <div class="nav-sub-item-with-dropdown">
+              <button class="nav-sub-dropdown-btn" data-dropdown="sets">
+                Jewelry Sets
+                <svg class="dropdown-arrow small" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </button>
+              <div class="sub-dropdown-content" id="sets-dropdown">
+                <a href="/collections/sets/bridal">Bridal Sets</a>
+                <a href="/collections/sets/matching">Matching Sets</a>
+                <a href="/collections/sets/gift">Gift Sets</a>
+                <a href="/collections/sets/occasion">Special Occasion</a>
+              </div>
+            </div>
+            
+            <a href="/collections/new-arrivals" class="simple-link">New Arrivals</a>
+          </div>
+        </div>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/shipping">Shipping</a>
+        <a href="/returns">Returns</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu?.classList.toggle('active');
+  });
+
+  // Dropdown functionality
+  const dropdownBtns = document.querySelectorAll('.nav-dropdown-btn');
+  const subDropdownBtns = document.querySelectorAll('.nav-sub-dropdown-btn');
+  
+  dropdownBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const dropdownId = btn.getAttribute('data-dropdown') + '-dropdown';
+      const dropdownContent = document.getElementById(dropdownId);
+      
+      // Toggle active class on button and dropdown
+      btn.classList.toggle('active');
+      dropdownContent?.classList.toggle('active');
+      
+      // Close other main dropdowns
+      dropdownBtns.forEach(otherBtn => {
+        if (otherBtn !== btn) {
+          otherBtn.classList.remove('active');
+          const otherDropdownId = otherBtn.getAttribute('data-dropdown') + '-dropdown';
+          const otherDropdown = document.getElementById(otherDropdownId);
+          otherDropdown?.classList.remove('active');
+        }
+      });
+      
+      // Close all sub-dropdowns when main dropdown closes
+      if (!btn.classList.contains('active')) {
+        subDropdownBtns.forEach(subBtn => {
+          subBtn.classList.remove('active');
+          const subDropdownId = subBtn.getAttribute('data-dropdown') + '-dropdown';
+          const subDropdown = document.getElementById(subDropdownId);
+          subDropdown?.classList.remove('active');
+        });
+      }
+    });
+  });
+
+  // Sub-dropdown functionality
+  subDropdownBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const dropdownId = btn.getAttribute('data-dropdown') + '-dropdown';
+      const dropdownContent = document.getElementById(dropdownId);
+      
+      // Toggle active class on button and dropdown
+      btn.classList.toggle('active');
+      dropdownContent?.classList.toggle('active');
+      
+      // Close other sub-dropdowns
+      subDropdownBtns.forEach(otherBtn => {
+        if (otherBtn !== btn) {
+          otherBtn.classList.remove('active');
+          const otherDropdownId = otherBtn.getAttribute('data-dropdown') + '-dropdown';
+          const otherDropdown = document.getElementById(otherDropdownId);
+          otherDropdown?.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  @import "/src/styles/navigation.css";
+</style>

@@ -1,0 +1,42 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "astro",
+  "functions": {
+    "src/pages/api/**/*.ts": {
+      "runtime": "edge",
+      "regions": ["lhr1", "fra1", "iad1"]
+    }
+  },
+  "env": {
+    "STRIPE_PUBLISHABLE_KEY": "@stripe-publishable-key",
+    "STRIPE_SECRET_KEY": "@stripe-secret-key",
+    "STRIPE_WEBHOOK_SECRET": "@stripe-webhook-secret",
+    "DATABASE_URL": "@database-url"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://parisalondon.com"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/inventory/:productId",
+      "destination": "/api/inventory/[productId]"
+    }
+  ]
+}

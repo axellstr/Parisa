@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Marquee from '../components/Marquee.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import FeaturedCollection from '../components/FeaturedCollection.astro';
+
+import BentoCollection from '../components/BentoCollection.astro';
+import DeliveryInfo from '../components/DeliveryInfo.astro';
+import Footer from '../components/Footer.astro';
+import ImageSection from '../components/ImageSection.astro';
+---
+
+<Layout title="Parisa London - Luxury Persian Turquoise Jewellery">
+  <Marquee />
+  <Navigation />
+  <Hero />
+  <FeaturedCollection />
+  <ImageSection imageSrc="/images/image-one.jpg" altText="Artisan Crafted Collection" />
+  <BentoCollection />
+  <ImageSection imageSrc="/images/image-two.jpg" altText="Heritage Collection" />
+  <DeliveryInfo />
+  <Footer />
+</Layout>
