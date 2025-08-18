@@ -1,5 +1,9 @@
 ---
 // Featured collection section with 4 product items
+import { Image } from 'astro:assets';
+
+// Import display image for optimization
+import displayImage from '../../public/images/display.jpg';
 ---
 
 <section class="featured-collection">
@@ -11,7 +15,7 @@
     <div class="collection-grid">
       <div class="collection-item">
         <div class="item-image">
-          <img src="/images/display.jpg" alt="Persian Turquoise Necklace" />
+          <Image src={displayImage} alt="Persian Turquoise Necklace" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
         </div>
         <div class="item-info">
           <h3 class="item-name">Turquoise Necklace <span class="arrow">→</span></h3>
@@ -20,7 +24,7 @@
       
       <div class="collection-item">
         <div class="item-image">
-          <img src="/images/display.jpg" alt="Persian Turquoise Bracelet" />
+          <Image src={displayImage} alt="Persian Turquoise Bracelet" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
         </div>
         <div class="item-info">
           <h3 class="item-name">Turquoise Bracelet <span class="arrow">→</span></h3>
@@ -29,7 +33,7 @@
       
       <div class="collection-item">
         <div class="item-image">
-          <img src="/images/display.jpg" alt="Persian Turquoise Earrings" />
+          <Image src={displayImage} alt="Persian Turquoise Earrings" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
         </div>
         <div class="item-info">
           <h3 class="item-name">Turquoise Earrings <span class="arrow">→</span></h3>
@@ -38,7 +42,7 @@
       
       <div class="collection-item">
         <div class="item-image">
-          <img src="/images/display.jpg" alt="Persian Turquoise Ring" />
+          <Image src={displayImage} alt="Persian Turquoise Ring" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
         </div>
         <div class="item-info">
           <h3 class="item-name">Turquoise Ring <span class="arrow">→</span></h3>

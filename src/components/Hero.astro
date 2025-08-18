@@ -1,34 +1,166 @@
 ---
-// Hero section with full-width image and overlaid text
+// Professional Hero Slider with 3 Collections using Swiper.js
+import { Image } from 'astro:assets';
+
+// Import hero images for optimization
+import heroImage from '../../public/images/hero.jpg';
+import bendoOneImage from '../../public/images/bendo-one.jpg';
+import bendoTwoImage from '../../public/images/bendo-two.jpg';
+
+const heroSlides = [
+  {
+    id: 1,
+    image: heroImage,
+    badge: "2025 BLUE-SKY COLLECTION",
+    title: "PARISA LONDON",
+    subtitle: "MAYFAIR • LONDON",
+    description: "PERSIAN TURQUOISE & RARE GEMSTONES",
+    craftsmanship: "Handcrafted in 18K Gold",
+    link: "/collections/blue-sky",
+    alt: "Elegant Persian turquoise necklace with gold chain"
+  },
+  {
+    id: 2,
+    image: bendoOneImage,
+    badge: "2025 HERITAGE COLLECTION",
+    title: "PARISA LONDON",
+    subtitle: "MAYFAIR • LONDON", 
+    description: "TRADITIONAL PERSIAN ARTISTRY & DIAMONDS",
+    craftsmanship: "Heritage Techniques in 22K Gold",
+    link: "/collections/heritage",
+    alt: "Traditional Persian heritage jewelry with diamonds"
+  },
+  {
+    id: 3,
+    image: bendoTwoImage,
+    badge: "2025 CONTEMPORARY COLLECTION",
+    title: "PARISA LONDON",
+    subtitle: "MAYFAIR • LONDON",
+    description: "MODERN ELEGANCE & PRECIOUS STONES",
+    craftsmanship: "Contemporary Design in Platinum",
+    link: "/collections/contemporary", 
+    alt: "Modern contemporary Persian jewelry design"
+  }
+];
 ---
 
-<section class="hero">
-  <div class="hero-image-container">
-    <img 
-      src="/images/hero.jpg" 
-      alt="Elegant Persian turquoise necklace with gold chain"
-      loading="eager"
-      class="hero-bg-image"
-    />
-    <div class="hero-overlay"></div>
-  </div>
-  
-  <div class="hero-content">
-    <div class="hero-text">
-      <div class="season-tag">FALL 2025</div>
-      <h1 class="hero-title">
-        MAISON ÉLÉGANT<span class="separator">•</span>LONDON<span class="separator">•</span>NEW YORK
-      </h1>
-      <p class="hero-subtitle">THE ART OF EXCEPTIONAL CRAFTSMANSHIP</p>
-      
-      <div class="hero-actions">
-        <a href="/collections" class="btn">View Collection</a>
-        <a href="/catalog" class="btn btn-secondary">Browse Catalogue</a>
-      </div>
+<section class="hero-slider">
+  <!-- Swiper Container -->
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+      {heroSlides.map((slide) => (
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <div class="hero-image-container">
+              <Image 
+                src={slide.image} 
+                alt={slide.alt}
+                loading="eager"
+                class="hero-bg-image"
+                width={1920}
+                height={1080}
+                decoding="async"
+                format="webp"
+                quality={85}
+              />
+              <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="hero-content">
+              <div class="hero-text">
+                <div class="luxury-badge">{slide.badge}</div>
+                
+                <h1 class="hero-title">
+                  {slide.title}
+                  <span class="location-subtitle">{slide.subtitle}</span>
+                </h1>
+                
+                <p class="hero-description">
+                  {slide.description}<br>
+                  <span class="craftsmanship">{slide.craftsmanship}</span>
+                </p>
+                
+                <div class="hero-actions">
+                  <a href={slide.link} class="btn btn-primary">Explore Collection</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
+    
+    <!-- Clean auto-only slider - no pagination -->
   </div>
 </section>
 
 <style>
   @import "/src/styles/hero.css";
 </style>
+
+<script>
+  import { Swiper } from 'swiper';
+  import { Autoplay } from 'swiper/modules';
+  
+  // Import Swiper styles
+  import 'swiper/css';
+  import 'swiper/css/autoplay';
+
+  // Clean Auto-Only Swiper Configuration (No Controls, No Pagination)
+  const heroSwiper = new Swiper('.hero-swiper', {
+    // Core modules - only Autoplay
+    modules: [Autoplay],
+    
+    // Professional Parameters
+    loop: true,                    // Infinite loop
+    speed: 1500,                   // Slower, smoother transition (1.5s)
+    spaceBetween: 0,               // No space between slides
+    slidesPerView: 1,              // One slide at a time
+    centeredSlides: true,          // Center slides
+    
+    // Autoplay Configuration (8 seconds as requested)
+    autoplay: {
+      delay: 8000,                 // 8 seconds delay
+      disableOnInteraction: false, // Continue autoplay even if user tries to interact
+      pauseOnMouseEnter: false,    // Don't pause on hover for seamless experience
+      waitForTransition: true,     // Wait for transition to complete
+      stopOnLastSlide: false,      // Never stop
+    },
+    
+    // Disable all manual interactions
+    allowTouchMove: false,         // Disable touch/swipe
+    simulateTouch: false,          // Disable touch simulation
+    grabCursor: false,             // No grab cursor
+    touchRatio: 0,                 // Zero touch sensitivity
+    
+    // Performance optimizations
+    updateOnWindowResize: true,
+    watchSlidesProgress: true,
+    
+    // Disable all controls for auto-only experience
+    keyboard: {
+      enabled: false,              // No keyboard control
+    },
+    
+    mousewheel: {
+      enabled: false,              // No mouse wheel control
+    },
+    
+    // Minimal events for smooth auto-only experience
+    on: {
+      init: function (swiper) {
+        // Add loaded class for smooth initialization
+        swiper.el.classList.add('swiper-loaded');
+      },
+    },
+  });
+
+  // Pause autoplay when page is not visible (performance optimization)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      heroSwiper.autoplay.stop();
+    } else {
+      heroSwiper.autoplay.start();
+    }
+  });
+</script>

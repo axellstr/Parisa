@@ -2,8 +2,6 @@
 
 > Production-ready luxury fine jewellery e-commerce platform featuring handcrafted 18K gold pieces with rare gemstones
 
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
-[![Deployed with Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=parisa-london)](https://vercel.com/)
 
 ## 🌟 Project Overview
 

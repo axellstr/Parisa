@@ -28,6 +28,15 @@
   }
 }
 
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-content {
+    animation: none;
+    transform: translateX(0);
+    padding-left: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .marquee {
     font-size: 0.75rem;

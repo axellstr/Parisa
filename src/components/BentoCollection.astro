@@ -1,5 +1,19 @@
 ---
 // Clean bento layout for collection showcase
+import { Image } from 'astro:assets';
+
+// Import bento images for optimization
+import bendoOneImage from '../../public/images/bendo-one.jpg';
+import bendoTwoImage from '../../public/images/bendo-two.jpg';
+import bendoThreeImage from '../../public/images/bendo-three.jpg';
+import bendoFourImage from '../../public/images/bendo-four.jpg';
+
+const bentoImages = {
+  1: bendoOneImage,
+  2: bendoTwoImage,
+  3: bendoThreeImage, 
+  4: bendoFourImage
+};
 ---
 
 <section class="bento-collection">
@@ -11,6 +25,17 @@
     <div class="bento-grid">
       <!-- Main large item -->
       <div class="bento-item bento-item-1">
+        <Image 
+          src={bentoImages[1]} 
+          alt="Handcrafted Heritage Collection" 
+          class="bento-image"
+          loading="lazy"
+          width={600}
+          height={800}
+          decoding="async"
+          format="webp"
+          quality={80}
+        />
         <div class="bento-overlay"></div>
         <div class="bento-content">
           <h3 class="bento-title">Handcrafted Heritage</h3>
@@ -20,6 +45,17 @@
       
       <!-- Bottom left item -->
       <div class="bento-item bento-item-2">
+        <Image 
+          src={bentoImages[2]} 
+          alt="Artisan Craft Collection" 
+          class="bento-image"
+          loading="lazy"
+          width={400}
+          height={300}
+          decoding="async"
+          format="webp"
+          quality={80}
+        />
         <div class="bento-overlay"></div>
         <div class="bento-content">
           <h3 class="bento-title">Artisan Craft</h3>
@@ -29,6 +65,17 @@
       
       <!-- Top right item -->
       <div class="bento-item bento-item-3">
+        <Image 
+          src={bentoImages[3]} 
+          alt="Timeless Beauty Collection" 
+          class="bento-image"
+          loading="lazy"
+          width={600}
+          height={250}
+          decoding="async"
+          format="webp"
+          quality={80}
+        />
         <div class="bento-overlay"></div>
         <div class="bento-content">
           <h3 class="bento-title">Timeless Beauty</h3>
@@ -38,6 +85,17 @@
       
       <!-- Bottom right item -->
       <div class="bento-item bento-item-4">
+        <Image 
+          src={bentoImages[4]} 
+          alt="Persian Legacy Collection" 
+          class="bento-image"
+          loading="lazy"
+          width={600}
+          height={750}
+          decoding="async"
+          format="webp"
+          quality={80}
+        />
         <div class="bento-overlay"></div>
         <div class="bento-content">
           <h3 class="bento-title">Persian Legacy</h3>

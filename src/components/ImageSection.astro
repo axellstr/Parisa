@@ -1,5 +1,7 @@
 ---
 // Reusable ImageSection component for displaying featured images
+import { Image } from 'astro:assets';
+
 interface Props {
   imageSrc: string;
   altText: string;
@@ -7,16 +9,38 @@ interface Props {
 }
 
 const { imageSrc, altText, className = "" } = Astro.props;
+
+// Import images based on imageSrc prop
+const imageMap: Record<string, () => Promise<any>> = {
+  '/images/image-one.jpg': () => import('../../public/images/image-one.jpg'),
+  '/images/image-two.jpg': () => import('../../public/images/image-two.jpg'),
+};
+
+const imageModule = imageMap[imageSrc] ? await imageMap[imageSrc]() : null;
+const optimizedImage = imageModule?.default || imageSrc;
 ---
 
 <section class={`image-section ${className}`}>
   <div class="image-container">
-    <img 
-      src={imageSrc} 
-      alt={altText} 
-      class="featured-image"
-      loading="lazy"
-    />
+    {imageModule ? (
+      <Image 
+        src={optimizedImage} 
+        alt={altText} 
+        class="featured-image"
+        loading="lazy"
+        width={1200}
+        height={400}
+        format="webp"
+        quality={80}
+      />
+    ) : (
+      <img 
+        src={imageSrc} 
+        alt={altText} 
+        class="featured-image"
+        loading="lazy"
+      />
+    )}
   </div>
 </section>
 

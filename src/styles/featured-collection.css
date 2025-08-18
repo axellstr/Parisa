@@ -111,3 +111,22 @@
     padding: 0;
   }
 }
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .item-image img {
+    transition: none;
+  }
+  
+  .collection-item:hover .item-image img {
+    transform: none;
+  }
+  
+  .arrow {
+    transition: none;
+  }
+  
+  .collection-item:hover .arrow {
+    transform: none;
+  }
+}

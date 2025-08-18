@@ -1,61 +1,11 @@
 /* Global CSS Variables and Base Styles */
 :root {
-  /* Primary Brand Colors */
   --primary-turquoise: #246a73;
   --secondary-turquoise: #368f8b;
-  --deep-green: #1a4a4a;
-  
-  /* Neutral Colors */
-  --background-light: #D8D2C2;
+  --background-light: #edf6f9;
   --text-dark: #0D1716;
   --text-light: #7F8C8D;
-  --text-muted: #333333;
-  --sage-gray: #9ca3a0;
-  
-  /* Accent Colors */
-  --luxury-gold: #C9A96E;
-  --warm-cream: #F5F3F0;
-  
-  /* White Transparencies */
-  --white-10: rgba(255, 255, 255, 0.1);
-  --white-20: rgba(255, 255, 255, 0.2);
-  --white-60: rgba(255, 255, 255, 0.6);
-  --white-70: rgba(255, 255, 255, 0.7);
-  --white-80: rgba(255, 255, 255, 0.8);
-  --white-90: rgba(255, 255, 255, 0.9);
-  --white-95: rgba(255, 255, 255, 0.95);
-  
-  /* Black Transparencies */
-  --black-10: rgba(0, 0, 0, 0.1);
-  --black-20: rgba(0, 0, 0, 0.2);
-  --black-30: rgba(0, 0, 0, 0.3);
-  --black-40: rgba(0, 0, 0, 0.4);
-  --black-50: rgba(0, 0, 0, 0.5);
-  
-  /* Background Light Transparencies */
-  --bg-light-15: rgba(216, 210, 194, 0.15);
-  --bg-light-30: rgba(216, 210, 194, 0.3);
-  --bg-light-50: rgba(216, 210, 194, 0.5);
-  --bg-light-60: rgba(216, 210, 194, 0.6);
-  --bg-light-90: rgba(216, 210, 194, 0.9);
-  --bg-light-95: rgba(216, 210, 194, 0.95);
-  --bg-light-transparent: rgba(216, 210, 194, 0);
-  
-  /* Primary Turquoise Transparencies */
-  --primary-turquoise-10: rgba(36, 106, 115, 0.1);
-  --primary-turquoise-20: rgba(36, 106, 115, 0.2);
-  
-  /* Gradient Colors */
-  --gradient-dark: linear-gradient(135deg, var(--black-10) 0%, var(--black-40) 100%);
-  --gradient-overlay: linear-gradient(transparent, var(--black-50));
-  
-  /* Border Colors */
-  --border-light: var(--primary-turquoise-10);
-  --border-white-light: var(--white-10);
-  
-  /* Shadow Colors */
-  --text-shadow: 0 2px 4px var(--black-30);
-  --box-shadow-light: 0 2px 8px var(--black-10);
+  --deep-green: #1a4a4a;
 }
 
 /* Reset and Base Styles */
@@ -95,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn {
   display: inline-block;
   padding: 0.75rem 2rem;
-  background: var(--bg-light-30);
+  background: rgba(216, 210, 194, 0.3);
   color: white;
   text-decoration: none;
   border: none;
@@ -103,21 +53,39 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   transition: all 0.3s ease;
   font-family: inherit;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
 }
 
 .btn:hover {
-  background: var(--bg-light-50);
+  background: rgba(216, 210, 194, 0.5);
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 400;
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--background-light);
-  border: 1px solid var(--background-light);
+  color: rgba(216, 210, 194, 0.8);
+  border: 1px solid rgba(216, 210, 194, 0.25);
+  font-weight: 300;
 }
 
 .btn-secondary:hover {
-  background: var(--bg-light-15);
-  border-color: var(--bg-light-90);
-  color: var(--bg-light-95);
-  border: 1px solid var(--bg-light-transparent);
+  background: rgba(216, 210, 194, 0.05);
+  border-color: rgba(216, 210, 194, 0.4);
+  color: rgba(216, 210, 194, 0.95);
+  transform: translateY(-1px);
 }
