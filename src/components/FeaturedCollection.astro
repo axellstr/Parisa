@@ -1,9 +1,26 @@
 ---
-// Featured collection section with 4 product items
+// Featured collection section with 4 product items with swiper slides
 import { ArrowRight } from 'lucide-astro';
 
-// Use direct path to public image (required for Vercel deployment)
-const displayImage = '/images/display.jpg';
+// Define image pairs for each collection item (shuffled starting images)
+const collectionItems = [
+  {
+    name: 'Turquoise Necklace',
+    images: ['/images/product.jpg', '/images/display.jpg']
+  },
+  {
+    name: 'Turquoise Bracelet', 
+    images: ['/images/image-one.jpg', '/images/display.jpg']
+  },
+  {
+    name: 'Turquoise Earrings',
+    images: ['/images/bendo-one.jpg', '/images/image-two.jpg']
+  },
+  {
+    name: 'Turquoise Ring',
+    images: ['/images/bendo-two.jpg', '/images/product.jpg']
+  }
+];
 ---
 
 <section class="featured-collection">
@@ -13,41 +30,25 @@ const displayImage = '/images/display.jpg';
     </div>
     
     <div class="collection-grid">
-      <div class="collection-item">
-        <div class="item-image">
-          <img src={displayImage} alt="Persian Turquoise Necklace" width="400" height="533" loading="lazy" />
+      {collectionItems.map((item, index) => (
+        <div class="collection-item">
+          <div class="item-image-container">
+            <div class={`swiper featured-swiper-${index}`}>
+              <div class="swiper-wrapper">
+                {item.images.map((image, imgIndex) => (
+                  <div class="swiper-slide">
+                    <img src={image} alt={`Persian ${item.name} - Image ${imgIndex + 1}`} width="400" height="533" loading="lazy" />
+                  </div>
+                ))}
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="item-info">
+            <h3 class="item-name">{item.name} <ArrowRight size={16} class="arrow" /></h3>
+          </div>
         </div>
-        <div class="item-info">
-          <h3 class="item-name">Turquoise Necklace <ArrowRight size={16} class="arrow" /></h3>
-        </div>
-      </div>
-      
-      <div class="collection-item">
-        <div class="item-image">
-          <img src={displayImage} alt="Persian Turquoise Bracelet" width="400" height="533" loading="lazy" />
-        </div>
-        <div class="item-info">
-          <h3 class="item-name">Turquoise Bracelet <ArrowRight size={16} class="arrow" /></h3>
-        </div>
-      </div>
-      
-      <div class="collection-item">
-        <div class="item-image">
-          <img src={displayImage} alt="Persian Turquoise Earrings" width="400" height="533" loading="lazy" />
-        </div>
-        <div class="item-info">
-          <h3 class="item-name">Turquoise Earrings <ArrowRight size={16} class="arrow" /></h3>
-        </div>
-      </div>
-      
-      <div class="collection-item">
-        <div class="item-image">
-          <img src={displayImage} alt="Persian Turquoise Ring" width="400" height="533" loading="lazy" />
-        </div>
-        <div class="item-info">
-          <h3 class="item-name">Turquoise Ring <ArrowRight size={16} class="arrow" /></h3>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
@@ -55,3 +56,30 @@ const displayImage = '/images/display.jpg';
 <style>
   @import "/src/styles/featured-collection.css";
 </style>
+
+<script>
+  import { featuredCollectionSwiperConfig } from '../config/swiper.ts';
+  
+  // Initialize swiper for each featured collection item
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Dynamically import Swiper
+    const { Swiper } = await import('swiper');
+    const { Pagination } = await import('swiper/modules');
+    
+    // Initialize each swiper instance
+    for (let i = 0; i < 4; i++) {
+      const swiperElement = document.querySelector(`.featured-swiper-${i}`) as HTMLElement;
+      if (swiperElement) {
+        new Swiper(swiperElement, {
+          ...featuredCollectionSwiperConfig,
+          modules: [Pagination],
+          pagination: {
+            el: `.featured-swiper-${i} .swiper-pagination`,
+            type: 'bullets',
+            clickable: true,
+          },
+        });
+      }
+    }
+  });
+</script>

@@ -1,0 +1,190 @@
+---
+// About page showcasing the Parisa London brand story
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Footer from '../components/Footer.astro';
+
+// Use direct paths to public images
+const heroImage = '/images/hero.jpg';
+const craftImage = '/images/bendo-one.jpg';
+const storyImage = '/images/image-one.jpg';
+---
+
+<Layout title="About Parisa London - Luxury Persian Jewellery | Mayfair London" description="Discover the story behind Parisa London - luxury Persian jewellery crafted with 18K gold, rare turquoise and precious gemstones. Located in the heart of Mayfair, London.">
+  <Navigation />
+  <CartDrawer />
+  
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="hero-image-container">
+      <img 
+        src={heroImage} 
+        alt="Parisa London luxury Persian jewellery workshop"
+        loading="eager"
+        class="hero-bg-image"
+        width="1920"
+        height="1080"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-text">
+          <div class="luxury-badge">ABOUT PARISA LONDON</div>
+          <h1 class="hero-title">
+            Crafting Persian Heritage
+            <span class="location-subtitle">Since 1985 • Mayfair, London</span>
+          </h1>
+          <p class="hero-description">
+            Where ancient Persian artistry meets contemporary luxury<br>
+            <span class="craftsmanship">Handcrafted in 18K Gold with Rare Gemstones</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="brand-story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-content">
+          <h2 class="section-title">Our Story</h2>
+          <div class="story-text">
+            <p class="story-intro">
+              Founded in the heart of Mayfair, London, Parisa London represents four decades of dedication to preserving and celebrating the timeless artistry of Persian jewellery craftsmanship.
+            </p>
+            <p>
+              Our journey began with a simple yet profound vision: to bring the exquisite beauty of traditional Persian jewellery to the modern world. Each piece in our collection tells a story of heritage, passion, and uncompromising quality.
+            </p>
+            <p>
+              We source the finest materials from around the world – rare Persian turquoise, precious gemstones, and the purest 18K gold – to create jewellery that transcends trends and becomes treasured heirlooms.
+            </p>
+          </div>
+        </div>
+        <div class="story-image">
+          <img 
+            src={storyImage} 
+            alt="Persian turquoise and gold jewellery craftsmanship"
+            loading="lazy"
+            width="600"
+            height="800"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Craftsmanship Section -->
+  <section class="craftsmanship-section">
+    <div class="container">
+      <div class="craft-grid">
+        <div class="craft-image">
+          <img 
+            src={craftImage} 
+            alt="Master craftsman working on Persian jewellery"
+            loading="lazy"
+            width="600"
+            height="800"
+          />
+        </div>
+        <div class="craft-content">
+          <h2 class="section-title">Master Craftsmanship</h2>
+          <div class="craft-features">
+            <div class="feature-item">
+              <h3 class="feature-title">Traditional Techniques</h3>
+              <p class="feature-description">
+                Our master craftsmen employ centuries-old Persian techniques, passed down through generations, ensuring each piece maintains its authentic character and cultural significance.
+              </p>
+            </div>
+            <div class="feature-item">
+              <h3 class="feature-title">Finest Materials</h3>
+              <p class="feature-description">
+                We exclusively use 18K gold, rare Persian turquoise, and carefully selected precious gemstones, sourced ethically and chosen for their exceptional quality and beauty.
+              </p>
+            </div>
+            <div class="feature-item">
+              <h3 class="feature-title">Bespoke Service</h3>
+              <p class="feature-description">
+                Our atelier offers personalized consultation and bespoke design services, creating unique pieces that reflect your individual style and celebrate your personal story.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <div class="values-header">
+        <h2 class="section-title">Our Values</h2>
+        <p class="values-subtitle">The principles that guide everything we create</p>
+      </div>
+      
+      <div class="values-grid">
+        <div class="value-item">
+          <h3 class="value-title">Heritage</h3>
+          <p class="value-description">
+            Preserving and honoring the rich tradition of Persian jewellery making while adapting to contemporary aesthetics.
+          </p>
+        </div>
+        <div class="value-item">
+          <h3 class="value-title">Quality</h3>
+          <p class="value-description">
+            Uncompromising commitment to excellence in every aspect, from material selection to final finishing touches.
+          </p>
+        </div>
+        <div class="value-item">
+          <h3 class="value-title">Authenticity</h3>
+          <p class="value-description">
+            Creating genuine pieces that honor their cultural origins while speaking to modern sensibilities.
+          </p>
+        </div>
+        <div class="value-item">
+          <h3 class="value-title">Sustainability</h3>
+          <p class="value-description">
+            Responsible sourcing and ethical practices ensure our beautiful creations respect both people and planet.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section class="location-section">
+    <div class="container">
+      <div class="location-content">
+        <h2 class="section-title">Visit Our Mayfair Atelier</h2>
+        <div class="location-info">
+          <div class="address-info">
+            <h3 class="location-title">Parisa London</h3>
+            <p class="address-line">123 Bond Street</p>
+            <p class="address-line">Mayfair, London W1S 1DX</p>
+            <p class="address-line">United Kingdom</p>
+          </div>
+          <div class="contact-info">
+            <h4 class="contact-title">Private Appointments</h4>
+            <p class="contact-line">Monday - Saturday: 10:00 - 18:00</p>
+            <p class="contact-line">Sunday: By appointment only</p>
+            <p class="contact-line">Phone: +44 20 7123 4567</p>
+            <p class="contact-line">Email: atelier@parisalondon.com</p>
+          </div>
+        </div>
+        <div class="location-actions">
+          <a href="#" class="btn btn-primary">Book Consultation</a>
+          <a href="#" class="btn btn-secondary">View Collections</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  @import "/src/styles/about.css";
+</style>

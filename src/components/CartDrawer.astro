@@ -365,7 +365,6 @@ import { X, ShoppingBag } from 'lucide-astro';
       if (existing) {
         // Limit quantity to prevent abuse
         if (existing.quantity >= 10) {
-          this.showNotification('Maximum quantity reached for this item');
           return;
         }
         existing.quantity += 1;
@@ -379,7 +378,6 @@ import { X, ShoppingBag } from 'lucide-astro';
       
       this.saveToStorage();
       this.updateCounters();
-      this.showNotification(`${sanitizedProduct.name} added to cart`);
       this.dispatchUpdate();
     }
 
@@ -499,45 +497,7 @@ import { X, ShoppingBag } from 'lucide-astro';
       window.dispatchEvent(new CustomEvent('cartUpdated', { detail: cartData }));
     }
 
-    showNotification(message: string) {
-      // Simple notification - you can enhance this
-      console.log('Cart notification:', message);
-      
-      // Try to show in a toast or similar UI element
-      const notification = document.createElement('div');
-      notification.textContent = message;
-      notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #10B981;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        z-index: 10000;
-        font-size: 14px;
-        animation: slideIn 0.3s ease;
-      `;
-      
-      // Add animation keyframes
-      if (!document.querySelector('#cart-notification-styles')) {
-        const style = document.createElement('style');
-        style.id = 'cart-notification-styles';
-        style.textContent = `
-          @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-          }
-        `;
-        document.head.appendChild(style);
-      }
-      
-      document.body.appendChild(notification);
-      
-      setTimeout(() => {
-        notification.remove();
-      }, 3000);
-    }
+
 
     checkout() {
       console.log('Checkout initiated', this.items);

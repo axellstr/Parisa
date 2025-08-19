@@ -4,7 +4,7 @@
 // Use direct paths to public images (required for Vercel deployment)
 const heroImage = '/images/hero.jpg';
 const bendoOneImage = '/images/bendo-one.jpg';
-const bendoTwoImage = '/images/bendo-two.jpg';
+const bendoTwoImage = '/images/hero-three.jpg';
 
 const heroSlides = [
   {
@@ -86,7 +86,8 @@ const heroSlides = [
       ))}
     </div>
     
-    <!-- Clean auto-only slider - no pagination -->
+    <!-- Professional Bullet Pagination -->
+    <div class="swiper-pagination"></div>
   </div>
 </section>
 
@@ -96,67 +97,57 @@ const heroSlides = [
 
 <script>
   import { Swiper } from 'swiper';
-  import { Autoplay } from 'swiper/modules';
+  import { Autoplay, Pagination } from 'swiper/modules';
+  import { heroSwiperConfig, heroSwiperEvents, timingConfig } from '../config/swiper.ts';
   
   // Import Swiper styles
   import 'swiper/css';
   import 'swiper/css/autoplay';
+  import 'swiper/css/pagination';
 
-  // Clean Auto-Only Swiper Configuration (No Controls, No Pagination)
-  const heroSwiper = new Swiper('.hero-swiper', {
-    // Core modules - only Autoplay
-    modules: [Autoplay],
-    
-    // Professional Parameters
-    loop: true,                    // Infinite loop
-    speed: 1500,                   // Slower, smoother transition (1.5s)
-    spaceBetween: 0,               // No space between slides
-    slidesPerView: 1,              // One slide at a time
-    centeredSlides: true,          // Center slides
-    
-    // Autoplay Configuration (8 seconds as requested)
-    autoplay: {
-      delay: 8000,                 // 8 seconds delay
-      disableOnInteraction: false, // Continue autoplay even if user tries to interact
-      pauseOnMouseEnter: false,    // Don't pause on hover for seamless experience
-      waitForTransition: true,     // Wait for transition to complete
-      stopOnLastSlide: false,      // Never stop
-    },
-    
-    // Disable all manual interactions
-    allowTouchMove: false,         // Disable touch/swipe
-    simulateTouch: false,          // Disable touch simulation
-    grabCursor: false,             // No grab cursor
-    touchRatio: 0,                 // Zero touch sensitivity
-    
-    // Performance optimizations
-    updateOnWindowResize: true,
-    watchSlidesProgress: true,
-    
-    // Disable all controls for auto-only experience
-    keyboard: {
-      enabled: false,              // No keyboard control
-    },
-    
-    mousewheel: {
-      enabled: false,              // No mouse wheel control
-    },
-    
-    // Minimal events for smooth auto-only experience
-    on: {
-      init: function (swiper) {
-        // Add loaded class for smooth initialization
-        swiper.el.classList.add('swiper-loaded');
-      },
-    },
-  });
+  // Create the swiper configuration by merging the imported config with modules and events
+  const swiperConfig = {
+    ...heroSwiperConfig,
+    modules: [Autoplay, Pagination], // Use actual module imports instead of strings
+    on: heroSwiperEvents,
+  };
 
-  // Pause autoplay when page is not visible (performance optimization)
+  // Instagram-Style Interactive Hero Swiper Configuration
+  const heroSwiper = new Swiper('.hero-swiper', swiperConfig);
+
+  // Enhanced visibility change handling
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
-      heroSwiper.autoplay.stop();
+      if (heroSwiper.autoplay && 'stop' in heroSwiper.autoplay) {
+        (heroSwiper.autoplay as any).stop();
+      }
     } else {
-      heroSwiper.autoplay.start();
+      // Resume with slight delay when page becomes visible
+      setTimeout(() => {
+        if (heroSwiper.autoplay && 'start' in heroSwiper.autoplay) {
+          (heroSwiper.autoplay as any).start();
+        }
+      }, timingConfig.visibilityResumeDelay);
+    }
+  });
+
+  // Professional focus management for accessibility
+  document.addEventListener('focusin', (e) => {
+    if (heroSwiper.el && e.target instanceof Node && heroSwiper.el.contains(e.target)) {
+      if (heroSwiper.autoplay && 'stop' in heroSwiper.autoplay) {
+        (heroSwiper.autoplay as any).stop();
+      }
+    }
+  });
+
+  document.addEventListener('focusout', (e) => {
+    const relatedTarget = e.relatedTarget;
+    if (heroSwiper.el && (!relatedTarget || !heroSwiper.el.contains(relatedTarget as Node))) {
+      setTimeout(() => {
+        if (heroSwiper.autoplay && 'start' in heroSwiper.autoplay) {
+          (heroSwiper.autoplay as any).start();
+        }
+      }, timingConfig.focusResumeDelay);
     }
   });
 </script>

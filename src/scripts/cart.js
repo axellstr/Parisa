@@ -37,7 +37,6 @@ class ParisaCart {
     if (existing) {
       // Limit quantity to prevent abuse
       if (existing.quantity >= 10) {
-        this.showNotification('Maximum quantity reached for this item');
         return;
       }
       existing.quantity += 1;
@@ -51,7 +50,6 @@ class ParisaCart {
     
     this.saveToStorage();
     this.updateCounters();
-    this.showNotification(`${sanitizedProduct.name} added to cart`);
     this.dispatchUpdate();
   }
 
@@ -173,72 +171,7 @@ class ParisaCart {
     });
   }
 
-  showNotification(message) {
-    // Remove existing notification
-    const existing = document.querySelector('.cart-notification');
-    existing?.remove();
 
-    // Create notification
-    const notification = document.createElement('div');
-    notification.className = 'cart-notification';
-    notification.innerHTML = `
-      <div class="notification-content">
-        <span>${message}</span>
-        <button class="notification-close">&times;</button>
-      </div>
-    `;
-
-    // Add styles
-    Object.assign(notification.style, {
-      position: 'fixed',
-      top: '20px',
-      right: '20px',
-      background: 'var(--primary-turquoise, #246a73)',
-      color: 'white',
-      padding: '1rem 1.5rem',
-      borderRadius: '8px',
-      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-      zIndex: '10000',
-      transform: 'translateX(100%)',
-      transition: 'transform 0.3s ease',
-      fontSize: '0.875rem',
-      fontWeight: '500'
-    });
-
-    notification.querySelector('.notification-content').style.cssText = `
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    `;
-
-    const closeBtn = notification.querySelector('.notification-close');
-    Object.assign(closeBtn.style, {
-      background: 'none',
-      border: 'none',
-      color: 'white',
-      cursor: 'pointer',
-      fontSize: '1.25rem',
-      padding: '0',
-      lineHeight: '1'
-    });
-
-    document.body.appendChild(notification);
-
-    // Show notification
-    requestAnimationFrame(() => {
-      notification.style.transform = 'translateX(0)';
-    });
-
-    // Auto hide
-    const hide = () => {
-      notification.style.transform = 'translateX(100%)';
-      setTimeout(() => notification.remove(), 300);
-    };
-
-    setTimeout(hide, 3000);
-    closeBtn.addEventListener('click', hide);
-  }
 
   async checkout() {
     if (this.items.length === 0) {
