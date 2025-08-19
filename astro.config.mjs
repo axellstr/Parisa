@@ -5,7 +5,8 @@ export default defineConfig({
   output: 'hybrid', // ✅ Enable hybrid mode for API routes
   adapter: vercel({
     webAnalytics: { enabled: true },
-    functionPerRoute: false
+    functionPerRoute: false,
+    edgeMiddleware: false
   }),
   site: 'https://parisalondon.com',
   devToolbar: {
