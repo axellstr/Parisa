@@ -4,7 +4,7 @@ import vercel from '@astrojs/vercel/serverless';
 export default defineConfig({
   output: 'hybrid', // ✅ Enable hybrid mode for API routes
   adapter: vercel({
-    webAnalytics: { enabled: true },
+    webAnalytics: { enabled: false },
     functionPerRoute: false,
     edgeMiddleware: false
   }),

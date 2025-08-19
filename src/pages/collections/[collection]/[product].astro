@@ -194,11 +194,11 @@ const mainImage = product.images[0];
         collection: addToCartBtn.getAttribute('data-collection')
       };
       
-      try {
-        const cart = await import('../../../scripts/cart.js');
-        cart.default.addItem(productData);
-      } catch (error) {
-        console.error('Error adding to cart:', error);
+      // Use global cart instance
+      if ((window as any).parisaCart) {
+        (window as any).parisaCart.addItem(productData);
+      } else {
+        console.error('Cart system not initialized');
       }
     });
   }

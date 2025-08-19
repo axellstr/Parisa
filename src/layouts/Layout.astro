@@ -11,6 +11,7 @@ const {
 
 // Import global CSS
 import '../styles/global.css';
+import '../styles/cart-drawer.css';
 ---
 
 <!DOCTYPE html>
@@ -38,21 +39,11 @@ import '../styles/global.css';
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     </noscript>
     
-    <!-- Import CSS files -->
-    <link rel="stylesheet" href="/src/styles/cart-drawer.css">
+
   </head>
   <body>
     <slot />
     
-    <!-- Load cart functionality -->
-    <script type="module">
-      // Load cart script dynamically to ensure proper initialization
-      try {
-        await import('/src/scripts/cart.js');
-        console.log('Cart system initialized');
-      } catch (error) {
-        console.error('Failed to load cart system:', error);
-      }
-    </script>
+
   </body>
 </html>
