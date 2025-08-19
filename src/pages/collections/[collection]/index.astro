@@ -63,13 +63,6 @@ const formatPrice = (price: number) => `£${(price / 100).toFixed(0)}`;
           
           <h1>{collection.name}</h1>
           <p class="hero-description">{collection.description}</p>
-          
-          <div class="collection-meta">
-            <span class="product-count">{collectionProducts.length} pieces</span>
-            <span class="price-range">
-              From {formatPrice(collection.price_range.min)}
-            </span>
-          </div>
         </div>
       </div>
     </section>
@@ -139,16 +132,6 @@ const formatPrice = (price: number) => `£${(price / 100).toFixed(0)}`;
 </Layout>
 
 <style>
-  .collection-page {
-    padding-top: var(--navigation-height, 80px);
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-
   .sr-only {
     position: absolute;
     width: 1px;
@@ -164,7 +147,7 @@ const formatPrice = (price: number) => `£${(price / 100).toFixed(0)}`;
   /* Hero Section */
   .collection-hero {
     position: relative;
-    min-height: 40vh;
+    min-height: 30vh;
     display: flex;
     align-items: center;
     color: var(--text-dark);
@@ -234,26 +217,9 @@ const formatPrice = (price: number) => `£${(price / 100).toFixed(0)}`;
     color: var(--text-light);
   }
 
-  .collection-meta {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    font-size: 1.125rem;
-    font-weight: 500;
-  }
-
-  .product-count,
-  .price-range {
-    padding: 0.5rem 1rem;
-    background: white;
-    border-radius: 6px;
-    border: 1px solid rgba(36, 106, 115, 0.2);
-    color: var(--text-dark);
-  }
-
   /* Products Section */
   .products-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 
   .section-header {
@@ -362,9 +328,6 @@ const formatPrice = (price: number) => `£${(price / 100).toFixed(0)}`;
   }
 
   @media (max-width: 768px) {
-    .collection-hero {
-      min-height: 50vh;
-    }
 
     .hero-content h1 {
       font-size: 2.5rem;
