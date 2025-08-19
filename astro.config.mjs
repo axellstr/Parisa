@@ -3,7 +3,11 @@ import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
   output: 'hybrid', // ✅ Enable hybrid mode for API routes
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+    functionPerRoute: false,
+    isr: false
+  }),
   site: 'https://parisalondon.com',
   devToolbar: {
     enabled: false
