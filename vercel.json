@@ -28,10 +28,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "src/pages/api/**/*.ts": {
-      "runtime": "edge"
-    }
-  }
+  ]
 }
