@@ -1,7 +1,9 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
   output: 'hybrid', // ✅ Enable hybrid mode for API routes
+  adapter: vercel(),
   site: 'https://parisalondon.com',
   devToolbar: {
     enabled: false
