@@ -1,10 +1,9 @@
 ---
 // Featured collection section with 4 product items
-import { Image } from 'astro:assets';
 import { ArrowRight } from 'lucide-astro';
 
-// Import display image for optimization
-import displayImage from '../../public/images/display.jpg';
+// Use direct path to public image (required for Vercel deployment)
+const displayImage = '/images/display.jpg';
 ---
 
 <section class="featured-collection">
@@ -16,7 +15,7 @@ import displayImage from '../../public/images/display.jpg';
     <div class="collection-grid">
       <div class="collection-item">
         <div class="item-image">
-          <Image src={displayImage} alt="Persian Turquoise Necklace" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
+          <img src={displayImage} alt="Persian Turquoise Necklace" width="400" height="533" loading="lazy" />
         </div>
         <div class="item-info">
           <h3 class="item-name">Turquoise Necklace <ArrowRight size={16} class="arrow" /></h3>
@@ -25,7 +24,7 @@ import displayImage from '../../public/images/display.jpg';
       
       <div class="collection-item">
         <div class="item-image">
-          <Image src={displayImage} alt="Persian Turquoise Bracelet" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
+          <img src={displayImage} alt="Persian Turquoise Bracelet" width="400" height="533" loading="lazy" />
         </div>
         <div class="item-info">
           <h3 class="item-name">Turquoise Bracelet <ArrowRight size={16} class="arrow" /></h3>
@@ -34,7 +33,7 @@ import displayImage from '../../public/images/display.jpg';
       
       <div class="collection-item">
         <div class="item-image">
-          <Image src={displayImage} alt="Persian Turquoise Earrings" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
+          <img src={displayImage} alt="Persian Turquoise Earrings" width="400" height="533" loading="lazy" />
         </div>
         <div class="item-info">
           <h3 class="item-name">Turquoise Earrings <ArrowRight size={16} class="arrow" /></h3>
@@ -43,7 +42,7 @@ import displayImage from '../../public/images/display.jpg';
       
       <div class="collection-item">
         <div class="item-image">
-          <Image src={displayImage} alt="Persian Turquoise Ring" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
+          <img src={displayImage} alt="Persian Turquoise Ring" width="400" height="533" loading="lazy" />
         </div>
         <div class="item-info">
           <h3 class="item-name">Turquoise Ring <ArrowRight size={16} class="arrow" /></h3>

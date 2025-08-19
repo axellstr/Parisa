@@ -1,11 +1,10 @@
 ---
 // Professional Hero Slider with 3 Collections using Swiper.js
-import { Image } from 'astro:assets';
 
-// Import hero images for optimization
-import heroImage from '../../public/images/hero.jpg';
-import bendoOneImage from '../../public/images/bendo-one.jpg';
-import bendoTwoImage from '../../public/images/bendo-two.jpg';
+// Use direct paths to public images (required for Vercel deployment)
+const heroImage = '/images/hero.jpg';
+const bendoOneImage = '/images/bendo-one.jpg';
+const bendoTwoImage = '/images/bendo-two.jpg';
 
 const heroSlides = [
   {
@@ -52,16 +51,13 @@ const heroSlides = [
         <div class="swiper-slide">
           <div class="hero-slide">
             <div class="hero-image-container">
-              <Image 
+              <img 
                 src={slide.image} 
                 alt={slide.alt}
                 loading="eager"
                 class="hero-bg-image"
-                width={1920}
-                height={1080}
-                decoding="async"
-                format="webp"
-                quality={85}
+                width="1920"
+                height="1080"
               />
               <div class="hero-overlay"></div>
             </div>

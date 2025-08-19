@@ -1,12 +1,11 @@
 ---
 // Clean bento layout for collection showcase
-import { Image } from 'astro:assets';
 
-// Import bento images for optimization
-import bendoOneImage from '../../public/images/bendo-one.jpg';
-import bendoTwoImage from '../../public/images/bendo-two.jpg';
-import bendoThreeImage from '../../public/images/bendo-three.jpg';
-import bendoFourImage from '../../public/images/bendo-four.jpg';
+// Use direct paths to public images (required for Vercel deployment)
+const bendoOneImage = '/images/bendo-one.jpg';
+const bendoTwoImage = '/images/bendo-two.jpg';
+const bendoThreeImage = '/images/bendo-three.jpg';
+const bendoFourImage = '/images/bendo-four.jpg';
 
 const bentoImages = {
   1: bendoOneImage,
@@ -25,16 +24,13 @@ const bentoImages = {
     <div class="bento-grid">
       <!-- Main large item -->
       <div class="bento-item bento-item-1">
-        <Image 
+        <img 
           src={bentoImages[1]} 
           alt="Handcrafted Heritage Collection" 
           class="bento-image"
           loading="lazy"
-          width={600}
-          height={800}
-          decoding="async"
-          format="webp"
-          quality={80}
+          width="600"
+          height="800"
         />
         <div class="bento-overlay"></div>
         <div class="bento-content">
@@ -45,16 +41,13 @@ const bentoImages = {
       
       <!-- Bottom left item -->
       <div class="bento-item bento-item-2">
-        <Image 
+        <img 
           src={bentoImages[2]} 
           alt="Artisan Craft Collection" 
           class="bento-image"
           loading="lazy"
-          width={400}
-          height={300}
-          decoding="async"
-          format="webp"
-          quality={80}
+          width="400"
+          height="300"
         />
         <div class="bento-overlay"></div>
         <div class="bento-content">
@@ -65,16 +58,13 @@ const bentoImages = {
       
       <!-- Top right item -->
       <div class="bento-item bento-item-3">
-        <Image 
+        <img 
           src={bentoImages[3]} 
           alt="Timeless Beauty Collection" 
           class="bento-image"
           loading="lazy"
-          width={600}
-          height={250}
-          decoding="async"
-          format="webp"
-          quality={80}
+          width="600"
+          height="250"
         />
         <div class="bento-overlay"></div>
         <div class="bento-content">
@@ -85,16 +75,13 @@ const bentoImages = {
       
       <!-- Bottom right item -->
       <div class="bento-item bento-item-4">
-        <Image 
+        <img 
           src={bentoImages[4]} 
           alt="Persian Legacy Collection" 
           class="bento-image"
           loading="lazy"
-          width={600}
-          height={750}
-          decoding="async"
-          format="webp"
-          quality={80}
+          width="600"
+          height="750"
         />
         <div class="bento-overlay"></div>
         <div class="bento-content">

@@ -1,10 +1,9 @@
 ---
 // Professional footer component
-import { Image } from 'astro:assets';
 import { Instagram, Facebook, Twitter, Youtube, ExternalLink } from 'lucide-astro';
 
-// Import logo for optimization
-import logoLight from '../../public/images/Logo_light.svg';
+// Use direct path to public logo (required for Vercel deployment)
+const logoLight = '/images/Logo_light.svg';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -15,7 +14,7 @@ const currentYear = new Date().getFullYear();
       <!-- Brand Section -->
       <div class="footer-section brand-section">
         <a href="/" class="footer-logo">
-          <Image src={logoLight} alt="Parisa London" class="footer-logo-image" width={120} height={40} loading="lazy" />
+          <img src={logoLight} alt="Parisa London" class="footer-logo-image" width="120" height="40" loading="lazy" />
         </a>
         <p class="footer-description">
           Luxury fine jewellery featuring handcrafted 18K gold pieces with rare Persian turquoise and gemstones.
