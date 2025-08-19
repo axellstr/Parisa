@@ -1,8 +1,11 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  output: 'static',
+  output: 'hybrid', // ✅ Enable hybrid mode for API routes
   site: 'https://parisalondon.com',
+  devToolbar: {
+    enabled: false
+  },
   integrations: [],
   image: {
     service: {
@@ -21,5 +24,7 @@ export default defineConfig({
         }
       }
     }
-  }
+  },
+  // Security configuration moved to vercel.json for production
+  // API routes are server-side rendered in hybrid mode
 });

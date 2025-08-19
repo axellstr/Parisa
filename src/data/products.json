@@ -1,0 +1,424 @@
+{
+  "kaleidoscope": [
+    {
+      "id": "kal-001",
+      "name": "Rainbow Prism Pendant",
+      "slug": "rainbow-prism-pendant",
+      "price": 285000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA001",
+      "images": [
+        "/images/product.jpg",
+        "/images/product.jpg",
+        "/images/product.jpg"
+      ],
+      "description": "A stunning pendant featuring a rare Persian turquoise center stone surrounded by diamonds in a kaleidoscope pattern",
+      "detailed_description": "This exquisite pendant showcases the finest Persian turquoise, carefully selected for its vibrant color and natural matrix patterns. The center stone is surrounded by brilliantly cut diamonds arranged in a mesmerizing kaleidoscope design, creating an ever-changing play of light and color.",
+      "specifications": {
+        "material": "18k Yellow Gold",
+        "stone": "Persian Turquoise, White Diamonds",
+        "dimensions": "25mm x 18mm",
+        "chain_length": "18 inches (adjustable to 16 inches)",
+        "weight": "8.5 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 1,
+      "sku": "PAR-KAL-001",
+      "collection": "kaleidoscope",
+      "featured": true,
+      "new_arrival": false,
+      "tags": ["pendant", "diamond", "turquoise", "luxury"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Rainbow Prism Persian Turquoise Pendant | Parisa London",
+        "description": "Luxury Persian turquoise pendant with diamond kaleidoscope setting. Handcrafted 18k gold jewelry from Parisa London's exclusive collection."
+      }
+    },
+    {
+      "id": "kal-002",
+      "name": "Spectrum Statement Ring",
+      "slug": "spectrum-statement-ring",
+      "price": 458000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA002",
+      "images": [
+        "/images/product.jpg",
+        "/images/product.jpg"
+      ],
+      "description": "Bold statement ring featuring multiple Persian turquoise stones in graduated sizes",
+      "detailed_description": "This dramatic ring features five carefully graduated Persian turquoise stones, each hand-selected for perfect color harmony. The stones are set in polished 18k rose gold with intricate metalwork inspired by traditional Persian jewelry techniques.",
+      "specifications": {
+        "material": "18k Rose Gold",
+        "stone": "Persian Turquoise (5 stones)",
+        "dimensions": "35mm x 20mm",
+        "ring_sizes": "Available in sizes 5-9",
+        "weight": "12.8 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 2,
+      "sku": "PAR-KAL-002",
+      "collection": "kaleidoscope",
+      "featured": false,
+      "new_arrival": true,
+      "tags": ["ring", "statement", "turquoise", "bold"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Spectrum Statement Persian Turquoise Ring | Parisa London",
+        "description": "Bold statement ring with five graduated Persian turquoise stones in 18k rose gold. Luxury handcrafted jewelry from Parisa London."
+      }
+    },
+    {
+      "id": "kal-003",
+      "name": "Crystal Cascade Earrings",
+      "slug": "crystal-cascade-earrings",
+      "price": 195000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA003",
+      "images": [
+        "/images/product.jpg",
+        "/images/product.jpg"
+      ],
+      "description": "Elegant drop earrings with cascading Persian turquoise and diamonds",
+      "detailed_description": "These sophisticated earrings feature a beautiful cascade of Persian turquoise stones interspersed with sparkling diamonds, creating movement and brilliance with every turn.",
+      "specifications": {
+        "material": "18k White Gold",
+        "stone": "Persian Turquoise, White Diamonds",
+        "dimensions": "45mm x 12mm",
+        "weight": "6.2 grams (pair)"
+      },
+      "in_stock": true,
+      "stock_quantity": 3,
+      "sku": "PAR-KAL-003",
+      "collection": "kaleidoscope",
+      "featured": false,
+      "new_arrival": false,
+      "tags": ["earrings", "drop", "turquoise", "diamond"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Crystal Cascade Persian Turquoise Earrings | Parisa London",
+        "description": "Elegant drop earrings featuring cascading Persian turquoise and diamonds in 18k white gold."
+      }
+    },
+    {
+      "id": "kal-004",
+      "name": "Prism Cuff Bracelet",
+      "slug": "prism-cuff-bracelet",
+      "price": 375000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA004",
+      "images": [
+        "/images/product.jpg",
+        "/images/product.jpg"
+      ],
+      "description": "Bold cuff bracelet with geometric Persian turquoise pattern",
+      "detailed_description": "A striking cuff bracelet featuring a geometric arrangement of Persian turquoise stones that create a prism-like effect, perfect for making a statement.",
+      "specifications": {
+        "material": "18k Yellow Gold",
+        "stone": "Persian Turquoise",
+        "dimensions": "60mm x 15mm",
+        "weight": "28.5 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 1,
+      "sku": "PAR-KAL-004",
+      "collection": "kaleidoscope",
+      "featured": false,
+      "new_arrival": false,
+      "tags": ["bracelet", "cuff", "geometric", "statement"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Prism Cuff Persian Turquoise Bracelet | Parisa London",
+        "description": "Bold geometric cuff bracelet featuring Persian turquoise in 18k yellow gold."
+      }
+    },
+    {
+      "id": "kal-005",
+      "name": "Mosaic Cocktail Ring",
+      "slug": "mosaic-cocktail-ring",
+      "price": 325000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA005",
+      "images": [
+        "/images/product.jpg"
+      ],
+      "description": "Cocktail ring with intricate Persian turquoise mosaic design",
+      "detailed_description": "An eye-catching cocktail ring featuring an intricate mosaic of Persian turquoise pieces arranged in a stunning kaleidoscope pattern.",
+      "specifications": {
+        "material": "18k Rose Gold",
+        "stone": "Persian Turquoise Mosaic",
+        "dimensions": "22mm diameter",
+        "ring_sizes": "Available in sizes 5-9",
+        "weight": "8.9 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 2,
+      "sku": "PAR-KAL-005",
+      "collection": "kaleidoscope",
+      "featured": false,
+      "new_arrival": false,
+      "tags": ["ring", "cocktail", "mosaic", "turquoise"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Mosaic Cocktail Persian Turquoise Ring | Parisa London",
+        "description": "Intricate mosaic cocktail ring featuring Persian turquoise in 18k rose gold."
+      }
+    },
+    {
+      "id": "kal-006",
+      "name": "Aurora Chain Necklace",
+      "slug": "aurora-chain-necklace",
+      "price": 225000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA006",
+      "images": [
+        "/images/product.jpg"
+      ],
+      "description": "Delicate chain necklace with Persian turquoise stations",
+      "detailed_description": "A refined chain necklace featuring carefully spaced Persian turquoise stations that catch the light like an aurora, perfect for layering or wearing alone.",
+      "specifications": {
+        "material": "18k Yellow Gold",
+        "stone": "Persian Turquoise",
+        "dimensions": "16-18 inches adjustable",
+        "weight": "4.2 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 4,
+      "sku": "PAR-KAL-006",
+      "collection": "kaleidoscope",
+      "featured": false,
+      "new_arrival": true,
+      "tags": ["necklace", "chain", "delicate", "layering"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Aurora Chain Persian Turquoise Necklace | Parisa London",
+        "description": "Delicate chain necklace with Persian turquoise stations in 18k yellow gold."
+      }
+    },
+    {
+      "id": "kal-007",
+      "name": "Radiance Stud Earrings",
+      "slug": "radiance-stud-earrings",
+      "price": 145000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA007",
+      "images": [
+        "/images/product.jpg"
+      ],
+      "description": "Classic stud earrings with Persian turquoise and diamond halos",
+      "detailed_description": "Timeless stud earrings featuring Persian turquoise centers surrounded by brilliant diamond halos, perfect for everyday elegance.",
+      "specifications": {
+        "material": "18k White Gold",
+        "stone": "Persian Turquoise, White Diamonds",
+        "dimensions": "8mm diameter",
+        "weight": "2.8 grams (pair)"
+      },
+      "in_stock": true,
+      "stock_quantity": 5,
+      "sku": "PAR-KAL-007",
+      "collection": "kaleidoscope",
+      "featured": false,
+      "new_arrival": false,
+      "tags": ["earrings", "stud", "diamond", "halo"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Radiance Stud Persian Turquoise Earrings | Parisa London",
+        "description": "Classic stud earrings with Persian turquoise and diamond halos in 18k white gold."
+      }
+    },
+    {
+      "id": "kal-008",
+      "name": "Infinity Band Ring",
+      "slug": "infinity-band-ring",
+      "price": 185000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA008",
+      "images": [
+        "/images/product.jpg"
+      ],
+      "description": "Elegant band ring with continuous Persian turquoise pattern",
+      "detailed_description": "A sophisticated band ring featuring a continuous pattern of Persian turquoise stones that symbolizes eternal beauty and infinite possibilities.",
+      "specifications": {
+        "material": "18k Yellow Gold",
+        "stone": "Persian Turquoise",
+        "dimensions": "4mm band width",
+        "ring_sizes": "Available in sizes 5-9",
+        "weight": "5.5 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 3,
+      "sku": "PAR-KAL-008",
+      "collection": "kaleidoscope",
+      "featured": false,
+      "new_arrival": false,
+      "tags": ["ring", "band", "eternity", "turquoise"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Infinity Band Persian Turquoise Ring | Parisa London",
+        "description": "Elegant band ring with continuous Persian turquoise pattern in 18k yellow gold."
+      }
+    },
+    {
+      "id": "kal-009",
+      "name": "Celestial Brooch",
+      "slug": "celestial-brooch",
+      "price": 395000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA009",
+      "images": [
+        "/images/product.jpg"
+      ],
+      "description": "Ornate brooch inspired by celestial kaleidoscope patterns",
+      "detailed_description": "A magnificent brooch inspired by celestial bodies, featuring an intricate kaleidoscope pattern of Persian turquoise and diamonds that captures the wonder of the night sky.",
+      "specifications": {
+        "material": "18k White Gold",
+        "stone": "Persian Turquoise, White Diamonds",
+        "dimensions": "40mm x 35mm",
+        "weight": "15.2 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 1,
+      "sku": "PAR-KAL-009",
+      "collection": "kaleidoscope",
+      "featured": false,
+      "new_arrival": false,
+      "tags": ["brooch", "celestial", "ornate", "statement"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Celestial Brooch Persian Turquoise | Parisa London",
+        "description": "Ornate celestial brooch with kaleidoscope pattern in Persian turquoise and diamonds."
+      }
+    },
+    {
+      "id": "kal-010",
+      "name": "Harmony Tennis Bracelet",
+      "slug": "harmony-tennis-bracelet",
+      "price": 425000,
+      "sale_price": null,
+      "stripe_price_id": "price_1KALA010",
+      "images": [
+        "/images/product.jpg"
+      ],
+      "description": "Tennis bracelet with alternating Persian turquoise and diamonds",
+      "detailed_description": "A luxurious tennis bracelet featuring perfectly matched Persian turquoise stones alternating with brilliant diamonds, creating a harmonious display of color and sparkle.",
+      "specifications": {
+        "material": "18k White Gold",
+        "stone": "Persian Turquoise, White Diamonds",
+        "dimensions": "7 inches (adjustable)",
+        "weight": "18.5 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 2,
+      "sku": "PAR-KAL-010",
+      "collection": "kaleidoscope",
+      "featured": true,
+      "new_arrival": false,
+      "tags": ["bracelet", "tennis", "diamond", "luxury"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Harmony Tennis Bracelet Persian Turquoise | Parisa London",
+        "description": "Luxury tennis bracelet with alternating Persian turquoise and diamonds in 18k white gold."
+      }
+    }
+  ],
+  "heritage": [
+    {
+      "id": "her-001",
+      "name": "Ancient Medallion Necklace",
+      "slug": "ancient-medallion-necklace",
+      "price": 485000,
+      "sale_price": null,
+      "stripe_price_id": "price_1HER001",
+      "images": [
+        "/images/product.jpg"
+      ],
+      "description": "Traditional medallion necklace inspired by ancient Persian designs",
+      "detailed_description": "A magnificent medallion necklace that pays homage to ancient Persian artistry, featuring intricate metalwork and a central Persian turquoise stone.",
+      "specifications": {
+        "material": "18k Yellow Gold",
+        "stone": "Persian Turquoise",
+        "dimensions": "50mm medallion diameter",
+        "chain_length": "20 inches",
+        "weight": "25.8 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 1,
+      "sku": "PAR-HER-001",
+      "collection": "heritage",
+      "featured": true,
+      "new_arrival": false,
+      "tags": ["necklace", "medallion", "traditional", "heritage"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Ancient Medallion Persian Turquoise Necklace | Parisa London",
+        "description": "Traditional medallion necklace inspired by ancient Persian designs with turquoise centerpiece."
+      }
+    }
+  ],
+  "contemporary": [
+    {
+      "id": "con-001",
+      "name": "Minimalist Drop Earrings",
+      "slug": "minimalist-drop-earrings",
+      "price": 125000,
+      "sale_price": null,
+      "stripe_price_id": "price_1CON001",
+      "images": [
+        "/images/product.jpg"
+      ],
+      "description": "Modern minimalist drop earrings with Persian turquoise",
+      "detailed_description": "Sleek and modern drop earrings that showcase the natural beauty of Persian turquoise in a contemporary setting.",
+      "specifications": {
+        "material": "18k White Gold",
+        "stone": "Persian Turquoise",
+        "dimensions": "25mm drop",
+        "weight": "3.2 grams (pair)"
+      },
+      "in_stock": true,
+      "stock_quantity": 4,
+      "sku": "PAR-CON-001",
+      "collection": "contemporary",
+      "featured": true,
+      "new_arrival": true,
+      "tags": ["earrings", "minimalist", "modern", "drop"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Minimalist Drop Persian Turquoise Earrings | Parisa London",
+        "description": "Modern minimalist drop earrings showcasing Persian turquoise in contemporary setting."
+      }
+    }
+  ],
+  "artisan": [
+    {
+      "id": "art-001",
+      "name": "Master Craftsman Ring",
+      "slug": "master-craftsman-ring",
+      "price": 675000,
+      "sale_price": null,
+      "stripe_price_id": "price_1ART001",
+      "images": [
+        "/images/product.jpg"
+      ],
+      "description": "Handcrafted ring showcasing traditional Persian metalwork techniques",
+      "detailed_description": "A masterpiece of traditional Persian craftsmanship, this ring features intricate hand-engraved metalwork surrounding a magnificent Persian turquoise stone.",
+      "specifications": {
+        "material": "18k Yellow Gold",
+        "stone": "Persian Turquoise",
+        "dimensions": "20mm x 15mm",
+        "ring_sizes": "Available in sizes 5-9",
+        "weight": "12.5 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 1,
+      "sku": "PAR-ART-001",
+      "collection": "artisan",
+      "featured": true,
+      "new_arrival": false,
+      "tags": ["ring", "handcrafted", "traditional", "masterpiece"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Master Craftsman Persian Turquoise Ring | Parisa London",
+        "description": "Handcrafted ring showcasing traditional Persian metalwork with magnificent turquoise stone."
+      }
+    }
+  ]
+}

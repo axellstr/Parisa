@@ -6,6 +6,7 @@
   --text-dark: #0D1716;
   --text-light: #7F8C8D;
   --deep-green: #1a4a4a;
+  --border-light: rgba(36, 106, 115, 0.15);
 }
 
 /* Reset and Base Styles */
@@ -38,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 /* Button Styles */

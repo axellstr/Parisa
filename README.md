@@ -17,17 +17,7 @@
 
 ## 🎨 Design System
 
-### Color Palette
-```css
-:root {
-  --primary-turquoise: #246a73;    /* Brand turquoise */
-  --secondary-turqoise: #368f8b;       /* Elegant gray */
-  --background-light: #FEFEFE;     /* Clean white */
-  --text-dark: #160f29;            /* Primary text */
-  --text-light: #7F8C8D;           /* Secondary text */
-}
-```
----
+
 
 ## 🏗️ Tech Stack
 

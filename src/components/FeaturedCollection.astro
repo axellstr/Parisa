@@ -1,6 +1,7 @@
 ---
 // Featured collection section with 4 product items
 import { Image } from 'astro:assets';
+import { ArrowRight } from 'lucide-astro';
 
 // Import display image for optimization
 import displayImage from '../../public/images/display.jpg';
@@ -18,7 +19,7 @@ import displayImage from '../../public/images/display.jpg';
           <Image src={displayImage} alt="Persian Turquoise Necklace" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
         </div>
         <div class="item-info">
-          <h3 class="item-name">Turquoise Necklace <span class="arrow">→</span></h3>
+          <h3 class="item-name">Turquoise Necklace <ArrowRight size={16} class="arrow" /></h3>
         </div>
       </div>
       
@@ -27,7 +28,7 @@ import displayImage from '../../public/images/display.jpg';
           <Image src={displayImage} alt="Persian Turquoise Bracelet" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
         </div>
         <div class="item-info">
-          <h3 class="item-name">Turquoise Bracelet <span class="arrow">→</span></h3>
+          <h3 class="item-name">Turquoise Bracelet <ArrowRight size={16} class="arrow" /></h3>
         </div>
       </div>
       
@@ -36,7 +37,7 @@ import displayImage from '../../public/images/display.jpg';
           <Image src={displayImage} alt="Persian Turquoise Earrings" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
         </div>
         <div class="item-info">
-          <h3 class="item-name">Turquoise Earrings <span class="arrow">→</span></h3>
+          <h3 class="item-name">Turquoise Earrings <ArrowRight size={16} class="arrow" /></h3>
         </div>
       </div>
       
@@ -45,7 +46,7 @@ import displayImage from '../../public/images/display.jpg';
           <Image src={displayImage} alt="Persian Turquoise Ring" width={400} height={533} loading="lazy" decoding="async" format="webp" quality={80} />
         </div>
         <div class="item-info">
-          <h3 class="item-name">Turquoise Ring <span class="arrow">→</span></h3>
+          <h3 class="item-name">Turquoise Ring <ArrowRight size={16} class="arrow" /></h3>
         </div>
       </div>
     </div>

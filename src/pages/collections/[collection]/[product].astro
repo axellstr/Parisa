@@ -1,0 +1,421 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Marquee from '../../../components/Marquee.astro';
+import Navigation from '../../../components/Navigation.astro';
+import Footer from '../../../components/Footer.astro';
+import CartDrawer from '../../../components/CartDrawer.astro';
+import collections from '../../../data/collections.json';
+import products from '../../../data/products.json';
+
+export async function getStaticPaths() {
+  const paths: Array<{
+    params: { collection: string; product: string };
+    props: { collection: any; product: any; collectionId: string };
+  }> = [];
+  
+  Object.keys(collections).forEach(collectionId => {
+    const collectionProducts = (products as any)[collectionId] || [];
+    collectionProducts.forEach((product: any) => {
+      paths.push({
+        params: { 
+          collection: collectionId,
+          product: product.slug 
+        },
+        props: { 
+          collection: (collections as any)[collectionId],
+          product: product,
+          collectionId: collectionId
+        }
+      });
+    });
+  });
+  
+  return paths;
+}
+
+const { collection, product, collectionId } = Astro.props;
+
+const formatPrice = (price: number) => `£${(price / 100).toFixed(2)}`;
+const mainImage = product.images[0];
+---
+
+<Layout 
+  title={`${product.name} | ${collection.name} | Parisa London`}
+  description={product.detailed_description}
+>
+  <Marquee />
+  <Navigation />
+  <main class="product-page">
+    <section class="product-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/collections">Collections</a> /
+          <a href={`/collections/${collectionId}`}>{collection.name}</a> /
+          <span>{product.name}</span>
+        </nav>
+        
+        <div class="product-layout">
+          <div class="product-gallery">
+            <div class="main-image">
+              <img 
+                src={mainImage} 
+                alt={product.name}
+                width="600"
+                height="600"
+                loading="eager"
+                class="featured-image"
+              />
+              {!product.in_stock && (
+                <div class="sold-out-overlay">
+                  <span>Sold Out</span>
+                </div>
+              )}
+            </div>
+            
+            <div class="thumbnail-gallery">
+              {product.images.map((image: string, index: number) => (
+                <button 
+                  class={`thumbnail ${index === 0 ? 'active' : ''}`}
+                  data-image={image}
+                  aria-label={`View image ${index + 1}`}
+                >
+                  <img 
+                    src={image} 
+                    alt={`${product.name} view ${index + 1}`}
+                    width="100"
+                    height="100"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          <div class="product-details">
+            <h1 class="product-title">{product.name}</h1>
+            
+            <div class="product-price">
+              {product.sale_price ? (
+                <>
+                  <span class="sale-price">{formatPrice(product.sale_price)}</span>
+                  <span class="original-price">{formatPrice(product.price)}</span>
+                </>
+              ) : (
+                <span class="price">{formatPrice(product.price)}</span>
+              )}
+            </div>
+            
+            <div class="product-description">
+              <p>{product.detailed_description}</p>
+            </div>
+            
+            <div class="product-actions">
+              <button 
+                class="add-to-cart-btn"
+                data-product-id={product.id}
+                data-product-name={product.name}
+                data-product-price={product.price}
+                data-product-image={mainImage}
+                data-collection={collectionId}
+                disabled={!product.in_stock}
+              >
+                {product.in_stock ? 'Add to Cart' : 'Sold Out'}
+              </button>
+              
+              <p class="availability">
+                {product.in_stock ? 
+                  `In stock (${product.stock_quantity} available)` : 
+                  'Currently unavailable'
+                }
+              </p>
+            </div>
+            
+            <div class="product-specifications">
+              <h3>Specifications</h3>
+              <dl>
+                <dt>Material</dt>
+                <dd>{product.specifications.material}</dd>
+                
+                <dt>Stone</dt>
+                <dd>{product.specifications.stone}</dd>
+                
+                <dt>Dimensions</dt>
+                <dd>{product.specifications.dimensions}</dd>
+                
+                <dt>Weight</dt>
+                <dd>{product.specifications.weight}</dd>
+                
+                <dt>SKU</dt>
+                <dd>{product.sku}</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  
+  <!-- Cart Drawer -->
+  <CartDrawer />
+</Layout>
+
+<script>
+  // Product gallery functionality
+  const thumbnails = document.querySelectorAll('.thumbnail');
+  const featuredImage = document.querySelector('.featured-image') as HTMLImageElement;
+  
+  thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', () => {
+      // Remove active class from all thumbnails
+      thumbnails.forEach(t => t.classList.remove('active'));
+      
+      // Add active class to clicked thumbnail
+      thumbnail.classList.add('active');
+      
+      // Update featured image
+      const newImage = thumbnail.getAttribute('data-image');
+      if (newImage && featuredImage) {
+        featuredImage.src = newImage;
+      }
+    });
+  });
+  
+  // Add to cart functionality
+  const addToCartBtn = document.querySelector('.add-to-cart-btn');
+  
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', async () => {
+      const productData = {
+        id: addToCartBtn.getAttribute('data-product-id'),
+        name: addToCartBtn.getAttribute('data-product-name'),
+        price: parseInt(addToCartBtn.getAttribute('data-product-price') || '0'),
+        image: addToCartBtn.getAttribute('data-product-image'),
+        collection: addToCartBtn.getAttribute('data-collection')
+      };
+      
+      try {
+        const cart = await import('../../../scripts/cart.js');
+        cart.default.addItem(productData);
+      } catch (error) {
+        console.error('Error adding to cart:', error);
+      }
+    });
+  }
+</script>
+
+<style>
+  .product-page {
+    padding-top: var(--navigation-height, 80px);
+  }
+
+  .product-hero {
+    padding: 2rem 0 4rem;
+    background: var(--background-light);
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+  }
+
+  .breadcrumb a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--primary-turquoise);
+  }
+
+  .product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .product-gallery {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .main-image {
+    position: relative;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(36, 106, 115, 0.1);
+  }
+
+  .featured-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .sold-out-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .thumbnail-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .thumbnail {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+
+  .thumbnail img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product-details {
+    padding: 1rem 0;
+  }
+
+  .product-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .product-price {
+    margin-bottom: 2rem;
+  }
+
+  .price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  .sale-price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--secondary-turquoise);
+    margin-right: 1rem;
+  }
+
+  .original-price {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+  }
+
+  .product-description {
+    margin-bottom: 2.5rem;
+  }
+
+  .product-description p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  .product-actions {
+    margin-bottom: 3rem;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--text-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .add-to-cart-btn:hover:not(:disabled) {
+    background: var(--primary-turquoise);
+    transform: translateY(-2px);
+  }
+
+  .add-to-cart-btn:disabled {
+    background: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .availability {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    text-align: center;
+  }
+
+  .product-specifications h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .product-specifications dl {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0.75rem 1rem;
+  }
+
+  .product-specifications dt {
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .product-specifications dd {
+    color: var(--text-light);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .product-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .product-gallery {
+      position: static;
+    }
+
+    .product-title {
+      font-size: 2rem;
+    }
+
+    .thumbnail-gallery {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,66 @@
+{
+  "kaleidoscope": {
+    "id": "kaleidoscope",
+    "name": "Kaleidoscope Collection",
+    "description": "A mesmerizing array of Persian turquoise pieces that capture light and color in endless combinations",
+    "hero_image": "/images/product.jpg",
+    "featured": true,
+    "color_theme": "rainbow",
+    "price_range": {
+      "min": 89500,
+      "max": 458000
+    },
+    "seo": {
+      "title": "Kaleidoscope Collection - Persian Turquoise Jewelry | Parisa London",
+      "description": "Discover our mesmerizing Kaleidoscope Collection featuring Persian turquoise jewelry with diamond accents. Handcrafted luxury pieces."
+    }
+  },
+  "heritage": {
+    "id": "heritage",
+    "name": "Heritage Collection",
+    "description": "Timeless pieces inspired by ancient Persian craftsmanship and traditional jewelry-making techniques",
+    "hero_image": "/images/product.jpg",
+    "featured": true,
+    "color_theme": "gold",
+    "price_range": {
+      "min": 125000,
+      "max": 675000
+    },
+    "seo": {
+      "title": "Heritage Collection - Traditional Persian Jewelry | Parisa London",
+      "description": "Explore our Heritage Collection of traditional Persian turquoise jewelry inspired by ancient craftsmanship techniques."
+    }
+  },
+  "contemporary": {
+    "id": "contemporary",
+    "name": "Contemporary Collection",
+    "description": "Modern interpretations of Persian turquoise jewelry for the contemporary woman",
+    "hero_image": "/images/product.jpg",
+    "featured": false,
+    "color_theme": "blue",
+    "price_range": {
+      "min": 67500,
+      "max": 289000
+    },
+    "seo": {
+      "title": "Contemporary Collection - Modern Persian Jewelry | Parisa London",
+      "description": "Modern Persian turquoise jewelry designs for the contemporary woman. Stylish and sophisticated pieces."
+    }
+  },
+  "artisan": {
+    "id": "artisan",
+    "name": "Artisan Collection",
+    "description": "Handcrafted pieces showcasing the finest Persian turquoise and traditional metalwork",
+    "hero_image": "/images/product.jpg",
+    "featured": false,
+    "color_theme": "turquoise",
+    "price_range": {
+      "min": 156000,
+      "max": 890000
+    },
+    "seo": {
+      "title": "Artisan Collection - Handcrafted Persian Jewelry | Parisa London",
+      "description": "Handcrafted Persian turquoise jewelry showcasing traditional metalwork and the finest stones."
+    }
+  }
+}

@@ -1,0 +1,252 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Marquee from '../../components/Marquee.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import CollectionGrid from '../../components/shop/CollectionGrid.astro';
+import CartDrawer from '../../components/CartDrawer.astro';
+import collections from '../../data/collections.json';
+
+const collectionsArray = Object.values(collections);
+
+// Sort collections - featured first, then alphabetically
+const sortedCollections = collectionsArray.sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return a.name.localeCompare(b.name);
+});
+---
+
+<Layout 
+  title="Luxury Collections | Parisa London Persian Turquoise Jewelry"
+  description="Explore our exquisite collections of Persian turquoise jewelry. From heritage pieces to contemporary designs, discover handcrafted luxury jewelry that tells the story of Persian artistry."
+>
+  <Marquee />
+  <Navigation />
+  <main class="collections-page">
+    <section class="collections-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Our Collections</h1>
+          <p class="hero-description">
+            Discover the artistry of Persian turquoise jewelry across our four curated collections. 
+            Each piece tells a story of heritage, craftsmanship, and timeless beauty.
+          </p>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">4</span>
+              <span class="stat-label">Curated Collections</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">40</span>
+              <span class="stat-label">Exclusive Pieces</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Persian Turquoise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CollectionGrid collections={sortedCollections} />
+
+    <section class="collections-story">
+      <div class="container">
+        <div class="story-content">
+          <h2>The Art of Persian Turquoise</h2>
+          <p>
+            For centuries, Persian turquoise has been revered as one of the world's most beautiful and spiritually significant gemstones. 
+            Our collections honor this legacy while embracing contemporary design sensibilities, creating pieces that are both timeless and thoroughly modern.
+          </p>
+          <div class="story-features">
+            <div class="feature">
+              <h3>Heritage Craftsmanship</h3>
+              <p>Traditional techniques passed down through generations of Persian artisans.</p>
+            </div>
+            <div class="feature">
+              <h3>Premium Materials</h3>
+              <p>18k gold and the finest Persian turquoise, carefully selected for quality and beauty.</p>
+            </div>
+            <div class="feature">
+              <h3>Modern Design</h3>
+              <p>Contemporary interpretations that honor tradition while embracing innovation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  
+  <!-- Cart Drawer -->
+  <CartDrawer />
+</Layout>
+
+<style>
+  .collections-page {
+    padding-top: var(--navigation-height, 80px);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .collections-hero {
+    padding: 4rem 0 3rem;
+    background: var(--background-light);
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    letter-spacing: -0.025em;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-turquoise);
+    line-height: 1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .collections-story {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .story-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .story-content h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .story-content > p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  .story-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .feature {
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .feature h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .collections-hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      gap: 2rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .collections-story {
+      padding: 3rem 0;
+    }
+
+    .story-content h2 {
+      font-size: 2rem;
+    }
+
+    .story-features {
+      gap: 1rem;
+    }
+
+    .feature {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-stats {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .story-features {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

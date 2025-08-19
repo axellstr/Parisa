@@ -23,18 +23,36 @@ import '../styles/global.css';
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     
+    <!-- Security Headers (Note: X-Frame-Options moved to server config) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://js.stripe.com; img-src 'self' data: https:; connect-src 'self' https://api.stripe.com;" />
+    
     <!-- Optimized font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     </noscript>
     
     <!-- Import CSS files -->
+    <link rel="stylesheet" href="/src/styles/cart-drawer.css">
   </head>
   <body>
     <slot />
+    
+    <!-- Load cart functionality -->
+    <script type="module">
+      // Load cart script dynamically to ensure proper initialization
+      try {
+        await import('/src/scripts/cart.js');
+        console.log('Cart system initialized');
+      } catch (error) {
+        console.error('Failed to load cart system:', error);
+      }
+    </script>
   </body>
 </html>

@@ -33,7 +33,7 @@ import logoDark from '../../public/images/Logo_dark.svg';
         </button>
         <button class="cart-btn" aria-label="Shopping Cart">
           <ShoppingCart size={20} />
-          <span class="cart-count" id="cart-count">0</span>
+          <span class="cart-count" data-cart-count style="display: none;">0</span>
         </button>
       </div>
     </div>
@@ -49,20 +49,29 @@ import logoDark from '../../public/images/Logo_dark.svg';
             </span>
           </button>
           <div class="dropdown-content" id="collections-dropdown">
-            <!-- Necklaces Dropdown -->
+            <!-- All Collections Link -->
+            <a href="/collections" class="featured-link">All Collections</a>
+            
+            <!-- Individual Collections -->
+            <a href="/collections/kaleidoscope">Kaleidoscope Collection</a>
+            <a href="/collections/heritage">Heritage Collection</a>
+            <a href="/collections/contemporary">Contemporary Collection</a>
+            <a href="/collections/artisan">Artisan Collection</a>
+            
+            <!-- Category Dropdown -->
             <div class="nav-item-with-dropdown nested">
               <button class="nav-dropdown-btn nested" data-dropdown="necklaces">
                 <span class="nav-title-with-icon">
-                  Necklaces
+                  By Category
                   <ChevronDown size={14} class="dropdown-arrow" />
                 </span>
               </button>
               <div class="dropdown-content nested" id="necklaces-dropdown">
-                <a href="/collections/necklaces/statement">Statement Necklaces</a>
-                <a href="/collections/necklaces/chokers">Chokers</a>
-                <a href="/collections/necklaces/pendants">Pendants</a>
-                <a href="/collections/necklaces/chains">Chains</a>
-                <a href="/collections/necklaces/layering">Layering Sets</a>
+                <a href="/collections?filter=necklaces">Necklaces</a>
+                <a href="/collections?filter=earrings">Earrings</a>
+                <a href="/collections?filter=rings">Rings</a>
+                <a href="/collections?filter=bracelets">Bracelets</a>
+                <a href="/collections?filter=pendants">Pendants</a>
               </div>
             </div>
             
@@ -75,11 +84,11 @@ import logoDark from '../../public/images/Logo_dark.svg';
                 </span>
               </button>
               <div class="dropdown-content nested" id="earrings-dropdown">
-                <a href="/collections/earrings/studs">Studs</a>
-                <a href="/collections/earrings/hoops">Hoops</a>
-                <a href="/collections/earrings/dangles">Dangles</a>
-                <a href="/collections/earrings/climbers">Ear Climbers</a>
-                <a href="/collections/earrings/cuffs">Ear Cuffs</a>
+                <a href="#">Studs</a>
+                <a href="#">Hoops</a>
+                <a href="#">Dangles</a>
+                <a href="#">Ear Climbers</a>
+                <a href="#">Ear Cuffs</a>
               </div>
             </div>
             
@@ -92,11 +101,11 @@ import logoDark from '../../public/images/Logo_dark.svg';
                 </span>
               </button>
               <div class="dropdown-content nested" id="bracelets-dropdown">
-                <a href="/collections/bracelets/bangles">Bangles</a>
-                <a href="/collections/bracelets/chains">Chain Bracelets</a>
-                <a href="/collections/bracelets/cuffs">Cuffs</a>
-                <a href="/collections/bracelets/tennis">Tennis Bracelets</a>
-                <a href="/collections/bracelets/charm">Charm Bracelets</a>
+                <a href="#">Bangles</a>
+                <a href="#">Chain Bracelets</a>
+                <a href="#">Cuffs</a>
+                <a href="#">Tennis Bracelets</a>
+                <a href="#">Charm Bracelets</a>
               </div>
             </div>
             
@@ -109,11 +118,11 @@ import logoDark from '../../public/images/Logo_dark.svg';
                 </span>
               </button>
               <div class="dropdown-content nested" id="rings-dropdown">
-                <a href="/collections/rings/statement">Statement Rings</a>
-                <a href="/collections/rings/bands">Bands</a>
-                <a href="/collections/rings/stackable">Stackable Rings</a>
-                <a href="/collections/rings/cocktail">Cocktail Rings</a>
-                <a href="/collections/rings/midi">Midi Rings</a>
+                <a href="#">Statement Rings</a>
+                <a href="#">Bands</a>
+                <a href="#">Stackable Rings</a>
+                <a href="#">Cocktail Rings</a>
+                <a href="#">Midi Rings</a>
               </div>
             </div>
             
@@ -126,21 +135,21 @@ import logoDark from '../../public/images/Logo_dark.svg';
                 </span>
               </button>
               <div class="dropdown-content nested" id="sets-dropdown">
-                <a href="/collections/sets/bridal">Bridal Sets</a>
-                <a href="/collections/sets/matching">Matching Sets</a>
-                <a href="/collections/sets/gift">Gift Sets</a>
-                <a href="/collections/sets/travel">Travel Sets</a>
+                <a href="#">Bridal Sets</a>
+                <a href="#">Matching Sets</a>
+                <a href="#">Gift Sets</a>
+                <a href="#">Travel Sets</a>
               </div>
             </div>
             
             <!-- New Arrivals -->
-            <a href="/collections/new-arrivals" class="main-collection-link">New Arrivals</a>
+            <a href="#" class="main-collection-link">New Arrivals</a>
           </div>
         </div>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="/shipping">Shipping</a>
-        <a href="/returns">Returns</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
       </div>
     </div>
   </div>
@@ -196,6 +205,8 @@ import logoDark from '../../public/images/Logo_dark.svg';
       }
     });
   });
+
+  // Cart functionality is loaded globally in Layout.astro
 </script>
 
 <style>

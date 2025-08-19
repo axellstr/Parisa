@@ -268,18 +268,22 @@
 
 .cart-count {
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: -8px;
+  right: -8px;
   background: var(--primary-turquoise);
   color: white;
   border-radius: 50%;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   font-size: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
+  line-height: 1;
+  border: 2px solid var(--background-light);
+  box-shadow: 0 2px 4px rgba(36, 106, 115, 0.2);
+  transition: all 0.2s ease;
 }
 
 /* Mobile Responsive */

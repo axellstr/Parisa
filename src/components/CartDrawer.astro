@@ -1,0 +1,324 @@
+---
+// Basic Cart Drawer - Just UI Structure
+import { X, ShoppingBag, Plus, Minus, Trash2 } from 'lucide-astro';
+---
+
+<!-- Cart Overlay -->
+<div id="cart-overlay" class="cart-overlay"></div>
+
+<!-- Cart Drawer -->
+<aside id="cart-drawer" class="cart-drawer">
+  <!-- Header -->
+  <header class="cart-header">
+    <div class="cart-header-content">
+      <div class="cart-title-wrapper">
+        <ShoppingBag size={20} class="cart-icon" />
+        <h2 class="cart-title">Shopping Cart</h2>
+        <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
+      </div>
+      <button id="cart-close" class="cart-close" aria-label="Close cart">
+        <X size={20} />
+      </button>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="cart-content">
+    <!-- Empty State -->
+    <div id="cart-empty" class="cart-empty">
+      <div class="empty-icon">
+        <ShoppingBag size={48} stroke-width={1} />
+      </div>
+      <h3 class="empty-title">Your cart is empty</h3>
+      <p class="empty-text">Add some beautiful jewelry pieces to get started</p>
+      <a href="/collections" class="empty-button">Shop Collections</a>
+    </div>
+
+    <!-- Items Container -->
+    <div id="cart-items" class="cart-items hidden">
+      <!-- Dynamic cart items will be rendered here -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="cart-footer" class="cart-footer hidden">
+    <div class="cart-summary">
+      <div class="subtotal-row">
+        <span class="subtotal-label">Subtotal</span>
+        <span id="cart-total" class="subtotal-amount">£89.00</span>
+      </div>
+      <p class="tax-note">Shipping and taxes calculated at checkout</p>
+    </div>
+    
+    <div class="cart-actions">
+      <button id="view-cart" class="cart-view-btn">View Cart</button>
+      <button id="checkout" class="cart-checkout-btn">
+        <span>Checkout</span>
+      </button>
+    </div>
+  </footer>
+</aside>
+
+
+
+<script>
+  // Cart Drawer Toggle Functionality
+  interface CartItem {
+    id: string;
+    name: string;
+    price: number;
+    image: string;
+    collection: string;
+    quantity: number;
+  }
+
+  interface CartData {
+    items: CartItem[];
+    count: number;
+    formattedTotal: string;
+  }
+
+  class CartDrawer {
+    private drawer: HTMLElement | null;
+    private overlay: HTMLElement | null;
+    private isOpen: boolean;
+
+    constructor() {
+      this.drawer = document.getElementById('cart-drawer');
+      this.overlay = document.getElementById('cart-overlay');
+      this.isOpen = false;
+      this.init();
+    }
+
+    init() {
+      this.setupEventListeners();
+      this.updateDisplay();
+      
+      // DEBUG: Show test item to check CSS
+      console.log('CartDrawer initialized');
+      
+      // Listen for cart updates
+      window.addEventListener('cartUpdated', ((e: CustomEvent<CartData>) => {
+        console.log('Cart updated:', e.detail);
+        this.updateDisplay(e.detail);
+      }) as EventListener);
+    }
+
+    setupEventListeners() {
+      // Cart button click (from navigation)
+      document.addEventListener('click', (e: Event) => {
+        const target = e.target as HTMLElement;
+        if (target?.closest('.cart-btn')) {
+          e.preventDefault();
+          this.toggle();
+        }
+      });
+
+      // Close button
+      const closeBtn = document.getElementById('cart-close');
+      closeBtn?.addEventListener('click', () => this.close());
+
+      // Overlay click to close
+      this.overlay?.addEventListener('click', () => this.close());
+
+      // Escape key to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.isOpen) {
+          this.close();
+        }
+      });
+
+      // Quantity controls
+      document.addEventListener('click', (e: Event) => {
+        const target = e.target as HTMLElement;
+        const quantityBtn = target?.closest('.quantity-btn') as HTMLElement;
+        if (!quantityBtn) return;
+
+        const cartItem = quantityBtn.closest('.cart-item') as HTMLElement;
+        const productId = cartItem?.dataset.productId;
+        const quantityInput = cartItem?.querySelector('.quantity-input') as HTMLInputElement;
+        
+        if (!productId || !quantityInput) return;
+
+        const currentQuantity = parseInt(quantityInput.value) || 1;
+        // Check if this is the plus button (comes after the input) or minus button (comes before)
+        const quantityControls = cartItem.querySelector('.quantity-controls');
+        const buttons = quantityControls?.querySelectorAll('.quantity-btn');
+        const isIncrease = quantityBtn === buttons?.[1]; // Second button is increase
+        const newQuantity = isIncrease ? currentQuantity + 1 : Math.max(1, currentQuantity - 1);
+
+        quantityInput.value = newQuantity.toString();
+        
+        if ((window as any).parisaCart) {
+          (window as any).parisaCart.updateQuantity(productId, newQuantity);
+        }
+      });
+
+      // Remove item buttons
+      document.addEventListener('click', (e: Event) => {
+        const target = e.target as HTMLElement;
+        const removeBtn = target?.closest('.remove-btn');
+        if (!removeBtn) return;
+
+        const cartItem = removeBtn.closest('.cart-item') as HTMLElement;
+        const productId = cartItem?.dataset.productId;
+        
+        if (!productId) return;
+
+        if ((window as any).parisaCart) {
+          (window as any).parisaCart.removeItem(productId);
+        }
+      });
+
+      // Checkout button
+      const checkoutBtn = document.getElementById('checkout');
+      checkoutBtn?.addEventListener('click', () => {
+        // TODO: Implement checkout functionality
+        console.log('Checkout clicked');
+      });
+
+      // View cart button
+      const viewCartBtn = document.getElementById('view-cart');
+      viewCartBtn?.addEventListener('click', () => {
+        // TODO: Implement view cart functionality
+        console.log('View cart clicked');
+      });
+    }
+
+    toggle() {
+      this.isOpen ? this.close() : this.open();
+    }
+
+    open() {
+      this.isOpen = true;
+      this.drawer?.classList.add('open');
+      this.overlay?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // DEBUG: Show test item for CSS debugging
+      const itemsContainer = document.getElementById('cart-items');
+      const emptyState = document.getElementById('cart-empty');
+      const footer = document.getElementById('cart-footer');
+      
+      if (itemsContainer) {
+        console.log('Showing test item for CSS debugging');
+        itemsContainer.classList.remove('hidden');
+        emptyState?.classList.add('hidden');
+        footer?.classList.remove('hidden');
+      }
+      
+      // Focus management for accessibility
+      this.drawer?.focus();
+    }
+
+    close() {
+      this.isOpen = false;
+      this.drawer?.classList.remove('open');
+      this.overlay?.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    updateDisplay(cartData?: CartData) {
+      if (!cartData && (window as any).parisaCart) {
+        cartData = {
+          items: (window as any).parisaCart.items,
+          count: (window as any).parisaCart.getTotalItems(),
+          formattedTotal: (window as any).parisaCart.getFormattedTotal()
+        };
+      }
+
+      if (!cartData) return;
+
+      // Update cart badge
+      const badge = document.getElementById('cart-badge');
+      if (badge) {
+        badge.textContent = cartData.count.toString();
+        badge.style.display = cartData.count > 0 ? 'flex' : 'none';
+      }
+
+      // Update total
+      const totalElement = document.getElementById('cart-total');
+      if (totalElement) {
+        totalElement.textContent = cartData.formattedTotal;
+      }
+
+      // Show/hide empty state vs items
+      const emptyState = document.getElementById('cart-empty');
+      const itemsContainer = document.getElementById('cart-items');
+      const footer = document.getElementById('cart-footer');
+
+      if (cartData.count === 0) {
+        emptyState?.classList.remove('hidden');
+        itemsContainer?.classList.add('hidden');
+        footer?.classList.add('hidden');
+      } else {
+        emptyState?.classList.add('hidden');
+        itemsContainer?.classList.remove('hidden');
+        footer?.classList.remove('hidden');
+        this.renderCartItems(cartData.items);
+      }
+    }
+
+    renderCartItems(items: CartItem[]) {
+      const container = document.getElementById('cart-items');
+      if (!container) return;
+
+      // Clear current items (keep sample for reference)
+      const existingItems = container.querySelectorAll('.cart-item[data-product-id]');
+      existingItems.forEach(item => item.remove());
+
+      // Render cart items
+      items.forEach(item => {
+        const itemElement = this.createCartItemElement(item);
+        container.appendChild(itemElement);
+      });
+    }
+
+    createCartItemElement(item: CartItem) {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'cart-item';
+      itemDiv.dataset.productId = item.id;
+
+      itemDiv.innerHTML = `
+        <img src="${item.image || '/images/product.jpg'}" alt="${item.name}" class="item-image">
+        <div class="item-details">
+          <h4 class="item-name">${item.name}</h4>
+          <p class="item-collection">${item.collection || 'collection'}</p>
+          <span class="item-price">£${(item.price / 100).toFixed(2)}</span>
+        </div>
+        <div class="item-controls">
+          <div class="quantity-controls">
+            <button class="quantity-btn" type="button" aria-label="Decrease quantity">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14"/>
+              </svg>
+            </button>
+            <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="10" aria-label="Quantity">
+            <button class="quantity-btn" type="button" aria-label="Increase quantity">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </button>
+          </div>
+          <button class="remove-btn" type="button" aria-label="Remove item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+              <path d="M10 11v6M14 11v6"/>
+            </svg>
+          </button>
+        </div>
+      `;
+
+      return itemDiv;
+    }
+  }
+
+  // Initialize cart drawer when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      new CartDrawer();
+    });
+  } else {
+    new CartDrawer();
+  }
+</script>

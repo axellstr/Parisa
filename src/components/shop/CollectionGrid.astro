@@ -1,0 +1,255 @@
+---
+interface Props {
+  collections: Array<{
+    id: string;
+    name: string;
+    description: string;
+    hero_image: string;
+    price_range: {
+      min: number;
+      max: number;
+    };
+    featured?: boolean;
+  }>;
+}
+
+const { collections } = Astro.props;
+
+const formatPrice = (price: number) => `£${(price / 100).toFixed(0)}`;
+---
+
+<section class="collections-grid-section">
+  <div class="container">
+    <div class="collections-grid">
+      {collections.map((collection) => (
+        <article class="collection-card" data-collection={collection.id}>
+          <div class="collection-image-container">
+            <a href={`/collections/${collection.id}`} aria-label={`View ${collection.name}`}>
+              <img 
+                src={collection.hero_image} 
+                alt={collection.name}
+                width="600"
+                height="400"
+                loading="lazy"
+                class="collection-image"
+              />
+            </a>
+            
+            {collection.featured && (
+              <span class="collection-badge">Featured</span>
+            )}
+          </div>
+
+          <div class="collection-details">
+            <h2 class="collection-name">
+              <a href={`/collections/${collection.id}`}>{collection.name}</a>
+            </h2>
+            
+            <p class="collection-description">{collection.description}</p>
+            
+            <div class="collection-meta">
+              <span class="price-range">
+                From {formatPrice(collection.price_range.min)}
+              </span>
+              <span class="collection-count">10 pieces</span>
+            </div>
+
+            <a 
+              href={`/collections/${collection.id}`} 
+              class="collection-cta"
+              aria-label={`Explore ${collection.name}`}
+            >
+              Explore Collection
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .collections-grid-section {
+    padding: 2rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+  }
+
+  .collection-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(36, 106, 115, 0.1);
+  }
+
+  .collection-card:hover {
+    /* No hover effects */
+  }
+
+  .collection-image-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/2;
+  }
+
+  .collection-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .collection-card:hover .collection-image {
+    transform: scale(1.05);
+  }
+
+  .collection-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary-turquoise);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+  }
+
+  .collection-details {
+    padding: 2rem;
+  }
+
+  .collection-name {
+    margin: 0 0 1rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .collection-name a {
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .collection-name a:hover {
+    color: var(--primary-turquoise);
+  }
+
+  .collection-description {
+    margin: 0 0 1.5rem 0;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .collection-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .price-range {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .collection-count {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  .collection-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--text-dark);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .collection-cta:hover {
+    background: var(--primary-turquoise);
+    transform: translateY(-2px);
+  }
+
+  .collection-cta svg {
+    transition: transform 0.3s ease;
+  }
+
+  .collection-cta:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 1024px) {
+    .collections-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .collections-grid-section {
+      padding: 1.5rem 0;
+    }
+
+    .collections-grid {
+      gap: 1rem;
+    }
+
+    .collection-card {
+      border-radius: 8px;
+    }
+
+    .collection-details {
+      padding: 1.5rem;
+    }
+
+    .collection-name {
+      font-size: 1.5rem;
+    }
+
+    .collection-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .collection-cta {
+      width: 100%;
+      justify-content: center;
+      padding: 1rem;
+    }
+  }
+</style>
