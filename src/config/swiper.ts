@@ -4,7 +4,7 @@
 export const heroSwiperConfig = {
   // Instagram-like Parameters
   loop: true,                    // Infinite loop
-  speed: 800,                    // Faster, more responsive transition
+  speed: 600,                    // Smoother, optimized transition speed for mobile
   spaceBetween: 0,               // No space between slides
   slidesPerView: 1,              // One slide at a time
   centeredSlides: false,         // Don't center slides for better positioning
@@ -18,17 +18,17 @@ export const heroSwiperConfig = {
     stopOnLastSlide: false,      // Never stop
   },
   
-  // Instagram-like Touch Behavior
+  // Optimized Touch Behavior for Mobile
   allowTouchMove: true,          // Enable touch/swipe
   simulateTouch: true,           // Enable touch simulation
   grabCursor: true,              // Show grab cursor
   touchRatio: 1,                 // Full touch sensitivity
   touchAngle: 45,                // Touch angle threshold
-  threshold: 5,                  // Lower threshold for more responsive swiping
+  threshold: 10,                 // Higher threshold for smoother, less sensitive swiping
   shortSwipes: true,             // Enable short swipes
   longSwipes: true,              // Enable long swipes
-  longSwipesRatio: 0.3,          // Lower ratio for easier swiping
-  longSwipesMs: 300,             // Faster swipe detection
+  longSwipesRatio: 0.4,          // Higher ratio for more deliberate swiping
+  longSwipesMs: 200,             // Faster swipe detection for responsiveness
   followFinger: true,            // Follow finger movement
   
   // Snap to slides like Instagram
@@ -97,10 +97,8 @@ export const heroSwiperEvents = {
   },
   
   slideChange: function (swiper: any) {
-    // Add haptic feedback for mobile
-    if ('vibrate' in navigator && window.DeviceMotionEvent) {
-      navigator.vibrate(50);
-    }
+    // Smooth slide change without haptic feedback for better mobile experience
+    // Removed vibration to prevent unwanted haptic feedback
   },
   
   slideChangeTransitionEnd: function (swiper: any) {
@@ -188,27 +186,27 @@ export const featuredCollectionSwiperConfig = {
 
 // Additional configuration options you can easily modify:
 
-// Timing settings
+// Timing settings - Optimized for smooth mobile performance
 export const timingConfig = {
   autoplayDelay: 10000,           // Change autoplay delay (milliseconds)
-  transitionSpeed: 800,           // Change transition speed (milliseconds)
+  transitionSpeed: 600,           // Optimized transition speed for mobile smoothness
   resumeDelay: 3000,              // Delay before resuming autoplay after touch
-  visibilityResumeDelay: 500,     // Delay when page becomes visible again
-  focusResumeDelay: 2000,         // Delay when focus leaves slider
+  visibilityResumeDelay: 300,     // Faster resume for better user experience
+  focusResumeDelay: 1500,         // Slightly faster resume after focus
 };
 
-// Touch sensitivity settings
+// Touch sensitivity settings - Optimized for smooth mobile performance
 export const touchConfig = {
-  threshold: 5,                   // Touch threshold for swipe detection
+  threshold: 10,                  // Higher threshold for smoother swipe detection
   touchAngle: 45,                 // Touch angle threshold
-  longSwipesRatio: 0.3,           // Ratio for long swipes
-  longSwipesMs: 300,              // Time for long swipe detection
+  longSwipesRatio: 0.4,           // Higher ratio for more deliberate swiping
+  longSwipesMs: 200,              // Faster detection for responsiveness
   resistanceRatio: 0.15,          // Resistance when reaching edges
 };
 
 // Visual settings
 export const visualConfig = {
-  enableHapticFeedback: true,     // Enable vibration on mobile
+  enableHapticFeedback: false,    // Disabled vibration for smooth mobile experience
   pauseOnHover: true,             // Pause autoplay on mouse hover
   enableKeyboard: true,           // Enable keyboard navigation
   enableMousewheel: false,        // Enable/disable mousewheel control
