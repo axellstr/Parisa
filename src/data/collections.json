@@ -1,7 +1,23 @@
 {
+  "talisman": {
+    "id": "talisman",
+    "name": "Talisman Calligraphy",
+    "description": "Mystical pieces featuring ancient Persian calligraphy and protective symbols in precious metals",
+    "hero_image": "/images/product.jpg",
+    "featured": true,
+    "color_theme": "gold",
+    "price_range": {
+      "min": 125000,
+      "max": 675000
+    },
+    "seo": {
+      "title": "Talisman Calligraphy - Persian Calligraphy Jewelry | Parisa London",
+      "description": "Discover our Talisman Calligraphy collection featuring Persian calligraphy and protective symbols in handcrafted jewelry."
+    }
+  },
   "kaleidoscope": {
     "id": "kaleidoscope",
-    "name": "Kaleidoscope Collection",
+    "name": "Kaleidoscope collection",
     "description": "A mesmerizing array of Persian turquoise pieces that capture light and color in endless combinations",
     "hero_image": "/images/product.jpg",
     "featured": true,
@@ -11,8 +27,8 @@
       "max": 458000
     },
     "seo": {
-      "title": "Kaleidoscope Collection - Persian Turquoise Jewelry | Parisa London",
-      "description": "Discover our mesmerizing Kaleidoscope Collection featuring Persian turquoise jewelry with diamond accents. Handcrafted luxury pieces."
+      "title": "Kaleidoscope collection - Persian Turquoise Jewelry | Parisa London",
+      "description": "Discover our mesmerizing Kaleidoscope collection featuring Persian turquoise jewelry with diamond accents. Handcrafted luxury pieces."
     }
   },
   "heritage": {
@@ -31,10 +47,10 @@
       "description": "Explore our Heritage Collection of traditional Persian turquoise jewelry inspired by ancient craftsmanship techniques."
     }
   },
-  "contemporary": {
-    "id": "contemporary",
-    "name": "Contemporary Collection",
-    "description": "Modern interpretations of Persian turquoise jewelry for the contemporary woman",
+  "forever": {
+    "id": "forever",
+    "name": "Forever Collection",
+    "description": "Eternal pieces designed to be treasured for generations, featuring timeless elegance and superior craftsmanship",
     "hero_image": "/images/product.jpg",
     "featured": false,
     "color_theme": "blue",
@@ -43,14 +59,14 @@
       "max": 289000
     },
     "seo": {
-      "title": "Contemporary Collection - Modern Persian Jewelry | Parisa London",
-      "description": "Modern Persian turquoise jewelry designs for the contemporary woman. Stylish and sophisticated pieces."
+      "title": "Forever Collection - Timeless Persian Jewelry | Parisa London",
+      "description": "Eternal Persian turquoise jewelry designs crafted to be treasured for generations. Timeless and sophisticated pieces."
     }
   },
-  "artisan": {
-    "id": "artisan",
-    "name": "Artisan Collection",
-    "description": "Handcrafted pieces showcasing the finest Persian turquoise and traditional metalwork",
+  "bespoke": {
+    "id": "bespoke",
+    "name": "Bespoke pieces",
+    "description": "Unique, custom-made pieces showcasing the finest Persian turquoise and personalized metalwork",
     "hero_image": "/images/product.jpg",
     "featured": false,
     "color_theme": "turquoise",
@@ -59,8 +75,8 @@
       "max": 890000
     },
     "seo": {
-      "title": "Artisan Collection - Handcrafted Persian Jewelry | Parisa London",
-      "description": "Handcrafted Persian turquoise jewelry showcasing traditional metalwork and the finest stones."
+      "title": "Bespoke pieces - Custom Persian Jewelry | Parisa London",
+      "description": "Custom-made Persian turquoise jewelry showcasing personalized craftsmanship and the finest stones."
     }
   }
 }

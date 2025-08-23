@@ -354,9 +354,44 @@
       }
     }
   ],
-  "contemporary": [
+  "talisman": [
     {
-      "id": "con-001",
+      "id": "tal-001",
+      "name": "Sacred Verse Pendant",
+      "slug": "sacred-verse-pendant",
+      "price": 325000,
+      "sale_price": null,
+      "stripe_price_id": "price_1TAL001",
+      "images": [
+        "/images/product.jpg",
+        "/images/product.jpg"
+      ],
+      "description": "Elegant pendant featuring ancient Persian calligraphy engraved in 18k gold",
+      "detailed_description": "This mystical pendant showcases the beauty of Persian calligraphy, featuring sacred verses carefully engraved in 18k yellow gold. Each piece carries protective symbols and meaningful text, making it both a stunning accessory and a spiritual talisman.",
+      "specifications": {
+        "material": "18k Yellow Gold",
+        "stone": "None",
+        "dimensions": "30mm x 20mm",
+        "chain_length": "20 inches (adjustable)",
+        "weight": "12 grams"
+      },
+      "in_stock": true,
+      "stock_quantity": 3,
+      "sku": "PAR-TAL-001",
+      "collection": "talisman",
+      "featured": true,
+      "new_arrival": true,
+      "tags": ["pendant", "calligraphy", "gold", "talisman"],
+      "care_instructions": "Clean with soft cloth. Avoid harsh chemicals. Store separately to prevent scratching.",
+      "seo": {
+        "title": "Sacred Verse Persian Calligraphy Pendant | Parisa London",
+        "description": "Handcrafted 18k gold pendant featuring ancient Persian calligraphy. Spiritual talisman jewelry from Parisa London's exclusive collection."
+      }
+    }
+  ],
+  "forever": [
+    {
+      "id": "for-001",
       "name": "Minimalist Drop Earrings",
       "slug": "minimalist-drop-earrings",
       "price": 125000,
@@ -375,8 +410,8 @@
       },
       "in_stock": true,
       "stock_quantity": 4,
-      "sku": "PAR-CON-001",
-      "collection": "contemporary",
+      "sku": "PAR-FOR-001",
+      "collection": "forever",
       "featured": true,
       "new_arrival": true,
       "tags": ["earrings", "minimalist", "modern", "drop"],
@@ -387,9 +422,9 @@
       }
     }
   ],
-  "artisan": [
+  "bespoke": [
     {
-      "id": "art-001",
+      "id": "bes-001",
       "name": "Master Craftsman Ring",
       "slug": "master-craftsman-ring",
       "price": 675000,
@@ -409,8 +444,8 @@
       },
       "in_stock": true,
       "stock_quantity": 1,
-      "sku": "PAR-ART-001",
-      "collection": "artisan",
+      "sku": "PAR-BES-001",
+      "collection": "bespoke",
       "featured": true,
       "new_arrival": false,
       "tags": ["ring", "handcrafted", "traditional", "masterpiece"],

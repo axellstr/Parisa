@@ -12,9 +12,16 @@ const {
 // Import global CSS
 import '../styles/global.css';
 import '../styles/cart-drawer.css';
+import '../styles/search-refined.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
+// Import SearchDropdown component
+import SearchDropdown from '../components/SearchDropdown.astro';
+
+// Import products data for search functionality
+import productsData from '../data/products.json';
 ---
 
 <!DOCTYPE html>
@@ -47,6 +54,15 @@ import 'swiper/css/pagination';
   <body>
     <slot />
     
-
+    <!-- Search Dropdown (Global) -->
+    <SearchDropdown />
+    
+    <!-- Products Data for Search -->
+    <script define:vars={{ productsData }}>
+      window.PARISA_PRODUCTS = productsData;
+    </script>
+    
+    <!-- Search Script -->
+    <script src="/src/scripts/search.js"></script>
   </body>
 </html>

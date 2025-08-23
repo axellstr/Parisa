@@ -56,12 +56,14 @@ const mainImage = product.images[0];
         
         <div class="product-layout">
           <div class="product-gallery">
+            <h1 class="product-title">{product.name}</h1>
+
             <div class="main-image">
               <img 
                 src={mainImage} 
                 alt={product.name}
-                width="600"
-                height="600"
+                width="300"
+                height="300"
                 loading="eager"
                 class="featured-image"
               />
@@ -91,9 +93,7 @@ const mainImage = product.images[0];
             </div>
           </div>
           
-          <div class="product-details">
-            <h1 class="product-title">{product.name}</h1>
-            
+          <div class="product-details">            
             <div class="product-price">
               {product.sale_price ? (
                 <>
@@ -205,10 +205,6 @@ const mainImage = product.images[0];
 </script>
 
 <style>
-  .product-page {
-    padding-top: var(--navigation-height, 80px);
-  }
-
   .product-hero {
     padding: 2rem 0 4rem;
     background: var(--background-light);
@@ -245,9 +241,8 @@ const mainImage = product.images[0];
   .main-image {
     position: relative;
     margin-bottom: 1rem;
-    border-radius: 8px;
     overflow: hidden;
-    border: 1px solid rgba(36, 106, 115, 0.1);
+    border: 1px solid rgb(36, 106, 115);
   }
 
   .featured-image {
@@ -280,7 +275,6 @@ const mainImage = product.images[0];
   .thumbnail {
     background: none;
     border: 2px solid transparent;
-    border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
     transition: border-color 0.2s ease;
@@ -299,7 +293,7 @@ const mainImage = product.images[0];
   }
 
   .product-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--text-dark);
     margin-bottom: 1rem;
@@ -411,7 +405,7 @@ const mainImage = product.images[0];
     }
 
     .product-title {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     .thumbnail-gallery {

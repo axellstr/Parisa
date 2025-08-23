@@ -1,0 +1,75 @@
+---
+// Refined Search Dropdown Component - Non-intrusive UI
+import { Search, X } from 'lucide-astro';
+---
+
+<!-- Search Backdrop (Mobile Only) -->
+<div class="search-backdrop" id="search-backdrop"></div>
+
+<!-- Search Dropdown -->
+<div class="search-dropdown" id="search-dropdown">
+  <!-- Search Input Section -->
+  <div class="search-input-section">
+    <div class="search-input-wrapper">
+      <Search size={16} class="search-input-icon" />
+      <input 
+        type="text" 
+        class="search-input-field" 
+        id="search-input-field"
+        placeholder="Search jewelry, collections..."
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button class="search-clear-btn" id="search-clear-btn" aria-label="Clear search">
+        <X size={14} />
+      </button>
+    </div>
+    <button class="search-close-mobile" id="search-close-mobile" aria-label="Close search">
+      <X size={20} />
+    </button>
+  </div>
+
+  <!-- Search Content -->
+  <div class="search-dropdown-content">
+    <!-- Quick Suggestions -->
+    <div class="search-quick-suggestions" id="search-suggestions-section">
+      <h3 class="quick-suggestions-title">Popular Searches</h3>
+      <div class="suggestion-pills">
+        <button class="suggestion-pill" data-search="turquoise">Persian Turquoise</button>
+        <button class="suggestion-pill" data-search="rings">Rings</button>
+        <button class="suggestion-pill" data-search="pendant">Pendants</button>
+        <button class="suggestion-pill" data-search="earrings">Earrings</button>
+        <button class="suggestion-pill" data-search="diamond">Diamond</button>
+        <button class="suggestion-pill" data-search="gold">18k Gold</button>
+      </div>
+    </div>
+
+    <!-- Search Results -->
+    <div class="search-results-section" id="search-results-section" style="display: none;">
+      <div class="search-results-header">
+        <span id="search-results-count">0 results</span>
+      </div>
+      <div class="search-results-list" id="search-results-list">
+        <!-- Results populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- No Results -->
+    <div class="search-no-results" id="search-no-results-section" style="display: none;">
+      <Search size={32} class="search-no-results-icon" />
+      <h3 class="search-no-results-title">No results found</h3>
+      <p class="search-no-results-text">Try searching for a different term or browse our collections.</p>
+    </div>
+  </div>
+
+  <!-- Search Footer -->
+  <div class="search-dropdown-footer">
+    <div class="search-footer-hint">
+      Press <span class="search-footer-shortcut">Ctrl+K</span> to search • <span class="search-footer-shortcut">Esc</span> to close
+    </div>
+  </div>
+</div>
+
+<style>
+  @import "/src/styles/search-refined.css";
+</style>

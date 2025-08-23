@@ -32,20 +32,6 @@ const sortedCollections = collectionsArray.sort((a, b) => {
             Discover the artistry of Persian turquoise jewelry across our four curated collections. 
             Each piece tells a story of heritage, craftsmanship, and timeless beauty.
           </p>
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-number">4</span>
-              <span class="stat-label">Curated Collections</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">40</span>
-              <span class="stat-label">Exclusive Pieces</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Persian Turquoise</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -85,10 +71,6 @@ const sortedCollections = collectionsArray.sort((a, b) => {
 </Layout>
 
 <style>
-  .collections-page {
-    padding-top: var(--navigation-height, 80px);
-  }
-
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -96,9 +78,9 @@ const sortedCollections = collectionsArray.sort((a, b) => {
   }
 
   .collections-hero {
-    padding: 4rem 0 3rem;
+    padding: 2rem 0;
     background: var(--background-light);
-    text-align: center;
+    text-align: left;
   }
 
   .hero-content h1 {
@@ -118,34 +100,7 @@ const sortedCollections = collectionsArray.sort((a, b) => {
     line-height: 1.7;
   }
 
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 2rem;
-  }
 
-  .stat {
-    text-align: center;
-  }
-
-  .stat-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-turquoise);
-    line-height: 1;
-  }
-
-  .stat-label {
-    display: block;
-    font-size: 0.875rem;
-    color: var(--text-light);
-    font-weight: 500;
-    margin-top: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
 
   .collections-story {
     padding: 5rem 0;
@@ -183,7 +138,6 @@ const sortedCollections = collectionsArray.sort((a, b) => {
   .feature {
     padding: 1.5rem;
     background: #f9fafb;
-    border-radius: 12px;
     border: 1px solid #e5e7eb;
   }
 
@@ -202,7 +156,7 @@ const sortedCollections = collectionsArray.sort((a, b) => {
 
   @media (max-width: 768px) {
     .collections-hero {
-      padding: 3rem 0 2rem;
+      padding: 2rem 0;
     }
 
     .hero-content h1 {
@@ -214,13 +168,7 @@ const sortedCollections = collectionsArray.sort((a, b) => {
       margin-bottom: 2rem;
     }
 
-    .hero-stats {
-      gap: 2rem;
-    }
 
-    .stat-number {
-      font-size: 2rem;
-    }
 
     .collections-story {
       padding: 3rem 0;
@@ -240,11 +188,6 @@ const sortedCollections = collectionsArray.sort((a, b) => {
   }
 
   @media (max-width: 480px) {
-    .hero-stats {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
     .story-features {
       grid-template-columns: 1fr;
     }

@@ -101,54 +101,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.2rem;
   height: auto;
   text-align: left;
 }
 
-/* NUCLEAR OPTION - Force white bullets with maximum specificity like in hero */
-.featured-collection .item-image-container .swiper-pagination .swiper-pagination-bullet,
-.featured-collection .item-image-container .swiper-pagination-bullets .swiper-pagination-bullet,
-.featured-collection .item-image-container.swiper .swiper-pagination-bullet {
-  background-color: rgba(255, 255, 255, 0.6) !important;
-  background: rgba(255, 255, 255, 0.6) !important;
-  opacity: 1 !important;
-  width: 24px !important;
-  height: 2px !important;
-  border-radius: 1px !important;
-  transition: all 0.3s ease !important;
-  margin: 0 !important;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-}
 
-.featured-collection .item-image-container .swiper-pagination .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active),
-.featured-collection .item-image-container .swiper-pagination-bullets .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active),
-.featured-collection .item-image-container.swiper .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
-  background-color: rgba(255, 255, 255, 0.8) !important;
-  background: rgba(255, 255, 255, 0.8) !important;
-  width: 30px !important;
-}
-
-.featured-collection .item-image-container .swiper-pagination .swiper-pagination-bullet-active,
-.featured-collection .item-image-container .swiper-pagination-bullets .swiper-pagination-bullet-active,
-.featured-collection .item-image-container.swiper .swiper-pagination-bullet-active {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  width: 36px !important;
-}
-
-/* Global override for featured collection bullets - Last resort like in hero */
-.featured-collection .swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.6) !important;
-  background-color: rgba(255, 255, 255, 0.6) !important;
-}
-
-.featured-collection .swiper-pagination-bullet-active {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
-}
 
 /* Large screen adjustments */
 @media (min-width: 1600px) {

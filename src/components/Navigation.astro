@@ -27,9 +27,11 @@ const logoDark = '/images/Logo_dark.svg';
       
       <!-- Cart Actions -->
       <div class="nav-actions">
-        <button class="search-btn" aria-label="Search">
-          <Search size={20} />
-        </button>
+        <div class="search-container" style="position: relative;">
+          <button class="search-btn" aria-label="Search (Ctrl+K)" id="open-search" title="Search (Ctrl+K)">
+            <Search size={20} />
+          </button>
+        </div>
         <button class="cart-btn" aria-label="Shopping Cart">
           <ShoppingCart size={20} />
           <span class="cart-count" data-cart-count style="display: none;">0</span>
@@ -52,10 +54,11 @@ const logoDark = '/images/Logo_dark.svg';
             <a href="/collections" class="featured-link">All Collections</a>
             
             <!-- Individual Collections -->
-            <a href="/collections/kaleidoscope">Kaleidoscope Collection</a>
+            <a href="/collections/talisman">Talisman Calligraphy</a>
+            <a href="/collections/kaleidoscope">Kaleidoscope collection</a>
             <a href="/collections/heritage">Heritage Collection</a>
-            <a href="/collections/contemporary">Contemporary Collection</a>
-            <a href="/collections/artisan">Artisan Collection</a>
+            <a href="/collections/forever">Forever Collection</a>
+            <a href="/collections/bespoke">Bespoke pieces</a>
             
             <!-- Category Dropdown -->
             <div class="nav-item-with-dropdown nested">
