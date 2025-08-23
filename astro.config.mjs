@@ -6,7 +6,8 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: false },
     functionPerRoute: false,
-    edgeMiddleware: false
+    edgeMiddleware: false,
+    runtime: 'nodejs18.x'
   }),
   site: 'https://parisalondon.com',
   devToolbar: {
