@@ -96,7 +96,7 @@ export const heroSwiperEvents = {
     }, 3000); // 3 second delay before resuming autoplay
   },
   
-  slideChange: function (swiper: any) {
+  slideChange: function (_swiper: any) {
     // Smooth slide change without haptic feedback for better mobile experience
     // Removed vibration to prevent unwanted haptic feedback
   },
