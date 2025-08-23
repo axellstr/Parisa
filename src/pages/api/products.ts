@@ -2,10 +2,33 @@
 import type { APIRoute } from 'astro';
 import productsData from '../../data/products.json';
 
+// Define the product interface
+interface Product {
+  id: string;
+  name: string;
+  slug: string;
+  price: number;
+  sale_price?: number;
+  images: string[];
+  description: string;
+  detailed_description: string;
+  collection: string;
+  tags: string[];
+  specifications: Record<string, string>;
+  in_stock: boolean;
+  featured: boolean;
+  new_arrival: boolean;
+  seo: {
+    title: string;
+    description: string;
+    keywords: string[];
+  };
+}
+
 export const GET: APIRoute = async () => {
   try {
     // Transform the data for better search performance
-    const flattenedProducts = [];
+    const flattenedProducts: Product[] = [];
     
     Object.entries(productsData).forEach(([collectionId, products]) => {
       products.forEach((product: any) => {
